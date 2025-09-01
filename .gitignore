@@ -1,0 +1,12 @@
+﻿wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+.htaccess
+error_log
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
+*.tmp
+wp-content/plugins/optimole-wp/
