@@ -1,4 +1,5 @@
-@"
+# Create the corrected YAML file without escaping issues
+@'
 name: Deploy Child Theme to SiteGround
 
 on:
@@ -19,22 +20,13 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Debug Secrets (masked)
-      run: |
-        echo "SFTP_HOST: ssh.readysetcomply.com"  
-        echo "SFTP_USERNAME: u2828-krlqriqezvfn"
-        echo "SFTP_PORT: 18765"
-        echo "Password length: `${#SFTP_PASSWORD}"
-      env:
-        SFTP_PASSWORD: `${{ secrets.SFTP_PASSWORD }}
-    
     - name: Verify Child Theme Files Exist
       run: |
         if [ ! -d "public_html/wp-content/themes/generatepress-child" ]; then
-          echo "❌ Error: Child theme directory not found"
+          echo "Error: Child theme directory not found"
           exit 1
         fi
-        echo "✅ Child theme files verified"
+        echo "Child theme files verified"
         find public_html/wp-content/themes/generatepress-child -type f
     
     - name: Deploy Child Theme via SFTP  
@@ -42,7 +34,7 @@ jobs:
       with:
         server: ssh.readysetcomply.com
         username: u2828-krlqriqezvfn
-        password: `${{ secrets.SFTP_PASSWORD }}
+        password: ${{ secrets.SFTP_PASSWORD }}
         port: 18765
         protocol: sftp
         local-dir: ./public_html/wp-content/themes/generatepress-child/
@@ -56,9 +48,9 @@ jobs:
     - name: Deployment Summary
       if: always()
       run: |
-        if [ "`${{ job.status }}" == "success" ]; then
-          echo "✅ Deployment successful to readysetcomply.com"
+        if [ "${{ job.status }}" == "success" ]; then
+          echo "Deployment successful"
         else
-          echo "❌ Deployment failed - check logs above"
+          echo "Deployment failed"
         fi
-"@ | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -Force
+'@ | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -Force
