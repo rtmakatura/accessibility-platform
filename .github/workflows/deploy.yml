@@ -8,12 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - uses: easingthemes/ssh-deploy@main
         with:
-          server: ssh.readysetcomply.com
-          port: 18765
-          username: u2828-krlqriqezvfn
-          password: 23k_1cF(_2wG
-          local_path: ./public_html/wp-content/themes/generatepress-child/
-          remote_path: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ssh.readysetcomply.com
+          REMOTE_USER: u2828-krlqriqezvfn
+          REMOTE_PORT: 18765
+          SOURCE: public_html/wp-content/themes/generatepress-child/
+          TARGET: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
