@@ -14,6 +14,6 @@ jobs:
           server: ssh.readysetcomply.com
           port: 18765
           username: u2828-krlqriqezvfn
-          password: ${{ secrets.SFTP_PASSWORD }}
+          password: 23k_1cF(_2wG
           local_path: ./public_html/wp-content/themes/generatepress-child/
           remote_path: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
