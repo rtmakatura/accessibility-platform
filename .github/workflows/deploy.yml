@@ -1,3 +1,5 @@
+# Create the YAML with an SFTP-compatible action
+$yamlContent = @"
 name: Deploy to SiteGround
 on:
   push:
@@ -7,12 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+    - uses: appleboy/scp-action@v0.1.7
       with:
-        server: ssh.readysetcomply.com
+        host: ssh.readysetcomply.com
         username: u2828-krlqriqezvfn
-        password: ${{ secrets.SFTP_PASSWORD }}
+        password: `${{ secrets.SFTP_PASSWORD }}
         port: 18765
-        protocol: sftp
-        local-dir: ./public_html/wp-content/themes/generatepress-child/
-        server-dir: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
+        source: public_html/wp-content/themes/generatepress-child/*
+        target: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
+        strip_components: 4
+"@
+
+$yamlContent | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -NoNewline
