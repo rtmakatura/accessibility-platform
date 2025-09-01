@@ -1,56 +1,28 @@
-# Create the corrected YAML file without escaping issues
-@'
-name: Deploy Child Theme to SiteGround
+# Delete the broken file and start fresh
+Remove-Item ".github\workflows\deploy.yml" -Force
 
+# Create a simple, working YAML file
+$yamlContent = @"
+name: Deploy to SiteGround
 on:
   push:
-    branches: [ main ]
-    paths:
-      - 'public_html/wp-content/themes/generatepress-child/**'
-  workflow_dispatch:
-
+    branches:
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    
-    - name: Verify Child Theme Files Exist
-      run: |
-        if [ ! -d "public_html/wp-content/themes/generatepress-child" ]; then
-          echo "Error: Child theme directory not found"
-          exit 1
-        fi
-        echo "Child theme files verified"
-        find public_html/wp-content/themes/generatepress-child -type f
-    
-    - name: Deploy Child Theme via SFTP  
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ssh.readysetcomply.com
-        username: u2828-krlqriqezvfn
-        password: ${{ secrets.SFTP_PASSWORD }}
-        port: 18765
-        protocol: sftp
-        local-dir: ./public_html/wp-content/themes/generatepress-child/
-        server-dir: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
-        exclude: |
-          **/.git*
-          **/node_modules/**
-          **/.DS_Store
-        timeout: 60000
-        
-    - name: Deployment Summary
-      if: always()
-      run: |
-        if [ "${{ job.status }}" == "success" ]; then
-          echo "Deployment successful"
-        else
-          echo "Deployment failed"
-        fi
-'@ | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -Force
+      - uses: actions/checkout@v4
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ssh.readysetcomply.com
+          username: u2828-krlqriqezvfn
+          password: `${{ secrets.SFTP_PASSWORD }}
+          port: 18765
+          protocol: sftp
+          local-dir: ./public_html/wp-content/themes/generatepress-child/
+          server-dir: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
+"@
+
+$yamlContent | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -NoNewline
