@@ -1,28 +1,18 @@
-# Delete the broken file and start fresh
-Remove-Item ".github\workflows\deploy.yml" -Force
-
-# Create a simple, working YAML file
-$yamlContent = @"
 name: Deploy to SiteGround
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ssh.readysetcomply.com
-          username: u2828-krlqriqezvfn
-          password: `${{ secrets.SFTP_PASSWORD }}
-          port: 18765
-          protocol: sftp
-          local-dir: ./public_html/wp-content/themes/generatepress-child/
-          server-dir: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
-"@
-
-$yamlContent | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -NoNewline
+    - uses: actions/checkout@v4
+    - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ssh.readysetcomply.com
+        username: u2828-krlqriqezvfn
+        password: ${{ secrets.SFTP_PASSWORD }}
+        port: 18765
+        protocol: sftp
+        local-dir: ./public_html/wp-content/themes/generatepress-child/
+        server-dir: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
