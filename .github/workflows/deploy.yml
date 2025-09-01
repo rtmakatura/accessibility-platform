@@ -1,32 +1,19 @@
-# Or use this approach with rsync
-$yamlContent = @"
 name: Deploy to SiteGround
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ssh.readysetcomply.com
-        username: u2828-krlqriqezvfn
-        password: `${{ secrets.SFTP_PASSWORD }}
-        port: 18765
-        script: |
-          mkdir -p /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
-    - uses: appleboy/scp-action@v0.1.7
-      with:
-        host: ssh.readysetcomply.com
-        username: u2828-krlqriqezvfn
-        password: `${{ secrets.SFTP_PASSWORD }}
-        port: 18765
-        source: public_html/wp-content/themes/generatepress-child/
-        target: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/
-        strip_components: 3
-"@
-
-$yamlContent | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -NoNewline
+      - uses: actions/checkout@v4
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ssh.readysetcomply.com
+          port: 18765
+          username: u2828-krlqriqezvfn
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: ./public_html/wp-content/themes/generatepress-child/
+          remote_path: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
