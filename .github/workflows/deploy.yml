@@ -1,3 +1,4 @@
+@"
 name: Deploy Child Theme to SiteGround
 
 on:
@@ -6,12 +7,6 @@ on:
     paths:
       - 'public_html/wp-content/themes/generatepress-child/**'
   workflow_dispatch:
-    inputs:
-      force_deploy:
-        description: 'Force deployment regardless of changes'
-        required: false
-        default: false
-        type: boolean
 
 jobs:
   deploy:
@@ -24,102 +19,46 @@ jobs:
       with:
         fetch-depth: 0
     
+    - name: Debug Secrets (masked)
+      run: |
+        echo "SFTP_HOST: ssh.readysetcomply.com"  
+        echo "SFTP_USERNAME: u2828-krlqriqezvfn"
+        echo "SFTP_PORT: 18765"
+        echo "Password length: `${#SFTP_PASSWORD}"
+      env:
+        SFTP_PASSWORD: `${{ secrets.SFTP_PASSWORD }}
+    
     - name: Verify Child Theme Files Exist
       run: |
         if [ ! -d "public_html/wp-content/themes/generatepress-child" ]; then
           echo "❌ Error: Child theme directory not found"
-          echo "Expected path: public_html/wp-content/themes/generatepress-child"
           exit 1
         fi
-        
-        if [ ! -f "public_html/wp-content/themes/generatepress-child/style.css" ]; then
-          echo "❌ Error: Child theme style.css not found"
-          exit 1
-        fi
-        
         echo "✅ Child theme files verified"
-        echo "Files to deploy:"
-        find public_html/wp-content/themes/generatepress-child -type f | head -20
+        find public_html/wp-content/themes/generatepress-child -type f
     
-    - name: Test SFTP Connection
-      uses: appleboy/ssh-action@v1.0.0
+    - name: Deploy Child Theme via SFTP  
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        host: ${{ secrets.SFTP_HOST }}
-        username: ${{ secrets.SFTP_USERNAME }}
-        password: ${{ secrets.SFTP_PASSWORD }}
-        port: ${{ secrets.SFTP_PORT }}
-        script: |
-          echo "✅ SFTP connection successful"
-          echo "Testing remote directory access..."
-          ls -la /home/${{ secrets.SFTP_USERNAME }}/public_html/wp-content/themes/ || echo "⚠️ Theme directory may not exist yet"
-    
-    - name: Deploy Child Theme via SFTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.SFTP_HOST }}
-        username: ${{ secrets.SFTP_USERNAME }}
-        password: ${{ secrets.SFTP_PASSWORD }}
-        port: ${{ secrets.SFTP_PORT }}
+        server: ssh.readysetcomply.com
+        username: u2828-krlqriqezvfn
+        password: `${{ secrets.SFTP_PASSWORD }}
+        port: 18765
         protocol: sftp
         local-dir: ./public_html/wp-content/themes/generatepress-child/
-        server-dir: /home/${{ secrets.SFTP_USERNAME }}/public_html/wp-content/themes/generatepress-child/
+        server-dir: /home/u2828-krlqriqezvfn/public_html/wp-content/themes/generatepress-child/
         exclude: |
           **/.git*
-          **/.git*/**
           **/node_modules/**
           **/.DS_Store
-          **/Thumbs.db
-          **/*.tmp
-          **/*.log
-        dry-run: false
+        timeout: 60000
         
-    - name: Verify Deployment Success
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.SFTP_HOST }}
-        username: ${{ secrets.SFTP_USERNAME }}
-        password: ${{ secrets.SFTP_PASSWORD }}
-        port: ${{ secrets.SFTP_PORT }}
-        script: |
-          echo "🔍 Verifying deployment..."
-          THEME_DIR="/home/${{ secrets.SFTP_USERNAME }}/public_html/wp-content/themes/generatepress-child"
-          
-          if [ -f "$THEME_DIR/style.css" ]; then
-            echo "✅ style.css deployed successfully"
-            echo "File size: $(stat -c%s "$THEME_DIR/style.css") bytes"
-            echo "Last modified: $(stat -c%y "$THEME_DIR/style.css")"
-          else
-            echo "❌ Error: style.css not found after deployment"
-            exit 1
-          fi
-          
-          echo "📁 Deployed files:"
-          find "$THEME_DIR" -type f -name "*.css" -o -name "*.php" -o -name "*.js" | head -10
-          
-          echo "🎉 Deployment verification complete!"
-          
     - name: Deployment Summary
       if: always()
       run: |
-        echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        if [ "${{ job.status }}" == "success" ]; then
-          echo "✅ **Status**: Deployment successful" >> $GITHUB_STEP_SUMMARY
-          echo "📁 **Deployed**: Child theme files to SiteGround" >> $GITHUB_STEP_SUMMARY
-          echo "🎯 **Target**: \`/public_html/wp-content/themes/generatepress-child/\`" >> $GITHUB_STEP_SUMMARY
-          echo "⏰ **Time**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        if [ "`${{ job.status }}" == "success" ]; then
+          echo "✅ Deployment successful to readysetcomply.com"
         else
-          echo "❌ **Status**: Deployment failed" >> $GITHUB_STEP_SUMMARY
-          echo "🔍 **Check**: Review the logs above for error details" >> $GITHUB_STEP_SUMMARY
+          echo "❌ Deployment failed - check logs above"
         fi
-        
-    - name: Notify on Failure
-      if: failure()
-      run: |
-        echo "🚨 DEPLOYMENT FAILED 🚨"
-        echo "Please check the following:"
-        echo "1. SFTP credentials are correct in repository secrets"
-        echo "2. Remote directory permissions allow file uploads"  
-        echo "3. Child theme files exist in the repository"
-        echo "4. Network connectivity to SiteGround servers"
-        exit 1
+"@ | Out-File -FilePath ".github\workflows\deploy.yml" -Encoding UTF8 -Force
