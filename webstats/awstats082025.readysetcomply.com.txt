@@ -1,0 +1,1083 @@
+AWSTATS DATA FILE 7.7 (build 20161204)
+# If you remove this file, all statistics for date 202508 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.readysetcomply.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2001                
+POS_TIME 2701                
+POS_VISITOR 14249               
+POS_DAY 23473               
+POS_DOMAIN 3722                
+POS_LOGIN 4504                
+POS_ROBOT 4659                
+POS_WORMS 5683                
+POS_EMAILSENDER 5814                
+POS_EMAILRECEIVER 5957                
+POS_SESSION 24263               
+POS_SIDER 24471               
+POS_FILETYPES 6092                
+POS_DOWNLOADS 6475                
+POS_OS 6568                
+POS_BROWSER 6835                
+POS_SCREENSIZE 9063                
+POS_UNKNOWNREFERER 9137                
+POS_UNKNOWNREFERERBROWSER 9546                
+POS_ORIGIN 9779                
+POS_SEREFERRALS 9922                
+POS_PAGEREFS 10085               
+POS_SEARCHWORDS 10304               
+POS_KEYWORDS 10456               
+POS_MISC 2364                
+POS_ERRORS 10515               
+POS_CLUSTER 4360                
+POS_SIDER_404 10722               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20250901000003 108586 34199475 11671755277724
+FirstTime 20250807172752
+LastTime 20250831190742
+LastUpdate 20250901042802 108586 89428 125 2 19030
+TotalVisits 290                 
+TotalUnique 210                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 239                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 80 0
+PDFSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+QuickTimeSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 373 588 5552451 252 373 1873178
+1 11 63 1121475 119 155 868119
+2 3495 3765 16535557 271 388 45772086
+3 364 863 16811298 244 383 3824877
+4 818 1963 26768880 394 489 1786795
+5 1841 4503 67898700 536 638 10069508
+6 4491 7374 115456856 659 899 117570760
+7 3951 4726 40178094 453 552 48171542
+8 1908 3199 68877895 1098 1266 8736455
+9 632 966 37133451 259 303 3937280
+10 193 256 6632525 185 205 6941742
+11 11 90 3644294 124 252 14082384
+12 14 111 3626189 147 235 4244858
+13 15 120 3692546 118 167 15536623
+14 165 651 19743659 249 312 1210801
+15 735 3442 64631345 329 541 1294760
+16 2480 5662 84429344 605 805 35155098
+17 3909 6808 168537619 3984 4195 7894209
+18 3545 5080 111326386 1117 1302 20904806
+19 3431 6970 187898640 1115 1268 4758747
+20 4147 8399 196980823 1027 1312 28101524
+21 1377 3337 100973284 563 634 1277860
+22 726 1516 38894588 334 396 1628593
+23 783 1672 31698503 291 359 10430553
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 37
+us 25257 37013 397582766
+cz 13952 33703 979046950
+in 42 45 1553054
+ca 30 181 7308282
+gb 20 116 1261855
+cn 12 12 274994
+nl 11 17 256776
+se 9 12 197747
+fr 8 159 3660835
+sa 8 248 8509582
+de 4 4 73769
+be 4 43 2802871
+sk 1 6 76593
+bg 4 4 83033
+ua 3 7 135432
+ie 0 29 258201
+ph 3 20 275299
+hu 2 45 371631
+ir 4 72 1695077
+pl 5 78 1742201
+es 3 41 725501
+sg 3 3 69798
+lu 2 36 198549
+tr 2 40 3137375
+ro 1 5 97033
+kr 5 45 377802
+au 1 5 73929
+lv 1 1 98845
+vn 1 26 117664
+fi 3 3 90878
+ve 1 1 24915
+ru 7 49 3302397
+hk 2 34 3330229
+pt 1 17 144045
+lt 1 1 41752
+mx 1 2 21827
+lk 1 1 24915
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 23
+wordpress 7667 282197668 20250831221620 0
+Googlebot/ 784 3882966 20250831160155 56
+bingbot/ 719 7732884 20250831221621 27
+AhrefsBot/ 553 42314536 20250831234301 48
+Applebot/ 266 22465636 20250830143516 14
+YandexBot/ 164 2253255 20250830215924 53
+spider 62 418389 20250816171327 10
+dataprovider\.com 57 3321002 20250809180334 2
+Googlebot\-Image/ 53 833974 20250822203229 0
+SemrushBot/ 51 596770 20250826234514 20
+python 21 458349 20250824153157 1
+unknown 12 1994 20250831131400 12
+yandex 1 20571 20250813193630 0
+YandexImages/ 25 11000230 20250827023654 0
+[\s_+:,\.\;\/\\-]bot 3 73899 20250828141028 0
+ips\-agent 5 77807 20250813181717 1
+no_user_agent 2 86492 20250830104215 1
+checker 10 248060 20250828181728 0
+curl 33 270471 20250814053802 2
+^mozilla\/5\.0$ 2 46782 20250812202637 0
+java 1 0 20250830234043 0
+crawl 29 504085 20250830234044 4
+bot[\s_+:,\.\;\/\\-] 15 73111 20250831083733 12
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 15
+js 12796 127749196 0 0
+Unknown 19435 48204817 0 0
+png 5249 840972168 0 0
+ttf 62 594454 0 0
+gif 131 1113886 0 0
+svg 1930 4159728 0 0
+jpg 1101 55874560 0 0
+woff2 23 2893400 0 0
+avif 33 2658382 0 0
+webp 55 371962 0 0
+xml 1 337 0 0
+html 3112 58262752 0 0
+jpeg 71 2931628 0 0
+php 16694 241600344 0 0
+css 11431 31656788 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/f1f8acdc69be494380c4fc27cc766d4c.txt 1 0 43
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 14
+linuxandroid 195 27
+win7 31 4
+macosx 246 46
+ios_ipad 212 83
+linuxubuntu 83 6
+win2000 2 2
+ios_iphone 1364 254
+winvista 1 1
+win8.1 1 1
+linux 523 107
+winnt 5 5
+Unknown 27 13
+win10 69432 38864
+macosx9 2 2
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 106
+safari18.5 45 5
+chrome71.0.1181.88 1 1
+chrome134.0.0.0 25 11
+chrome114.0.0.0 48 4
+safari13.1.1 3 3
+edge18 1 1
+chrome101.0.4951.61 1 1
+chrome106.0.0.0 7 2
+firefox128.0 1 1
+safari17.1 1 1
+chrome139.0.0.0 109 24
+firefox109.0 45 2
+chrome103.0.5060.66 81 1
+chrome119.0.0.0 1 1
+chrome70.0.3325.88 1 1
+safari14.0 2 2
+netscape5.0 10 10
+chrome131.0.0.0 120 22
+chrome63.0.3239.111 42 3
+iphone 140 10
+chrome137.0.0.0 30 4
+firefox120.0 5 5
+chrome125.0.0.0 89 8
+firefox142.0 11243 3484
+safari15.1 1 1
+safari17.0 3 1
+chrome123.0.0.0 2 2
+chrome122.0.0.0 20 5
+safari14.0.3 670 205
+chrome72.0.3680.88 1 1
+safari18.1.1 49 4
+chrome105.0.0.0 7 4
+chrome130.0.0.0 108 7
+chrome138.0.0.0 105 4
+edge44 2 2
+mozilla 11 3
+opera100.0.0.0 1 0
+safari 87 7
+chrome117.0.5938.132 78 3
+firefox102.0 1 1
+chrome80.0.3987.162 2 2
+firefox68.0 1 1
+firefox93.0 1 1
+firefox49.0 1 1
+chrome83.0.4103.61 31 4
+safari17.5 1 1
+chrome73.0.1948.88 1 1
+opera120.0.0.0 69 2
+chrome76.0.3136.88 1 1
+chrome114.0.5775.194 20 2
+safari14.1.2 212 83
+chrome91.0.4472.114 3 3
+safari15.3 1 1
+chrome136.0.0.0 31 4
+chrome83.0.4103.97 5 5
+firefox98.0 1 1
+chrome125.0.6422.60 78 3
+chrome104.0.0.0 1 1
+chrome115.0.5810.222 63 4
+chrome70.0.3538.110 36 1
+chrome109.0.0.0 1 1
+firefox115.0 1 1
+opera89.0.4447.51 41 40
+chrome139.0.7258.5 33 1
+chrome133.0.0.0 2 2
+chrome132.0.0.0 138 9
+safari17.4 1 1
+chrome113.0.0.0 42 3
+chrome76.0.1339.88 1 1
+opera63.3.3216.58675 1 1
+chrome78.0.2853.88 1 1
+chrome80.0.3987.132 45 5
+chrome128.0.0.0 36 1
+chrome66.0.3359.181 39 39
+Unknown 16 10
+firefox123.0 2 1
+safari17.7.92 1 1
+chrome74.0.2557.88 1 1
+chrome121.0.0.0 91 9
+chrome138.0.7204.97 1 1
+chrome104.0.5112.81 1 1
+firefox134.0 1 1
+chrome95.0.4638.69 3 3
+android 26 2
+chrome138.0.7204.23 54 5
+chrome80.0.3987.119 1 1
+chrome115.0.0.0 2 2
+firefox141.0 57385 35249
+chrome58.0.3029.110 2 1
+safari17.1.2 1 1
+chrome74.0.2916.88 1 1
+safari10.0 361 13
+chrome112.0.5615.136 1 1
+chrome136.0.7103.49 1 0
+chrome78.0.2290.88 1 1
+safari18.3.1 1 0
+chrome124.0.0.0 7 7
+chrome135.0.7049.115 1 1
+firefox139.0 14 7
+chrome72.0.3894.88 1 1
+chrome84.0.4147.89 2 2
+chrome87.0.4280.101 1 1
+chrome129.0.0.0 3 3
+chrome85.0.4183.101 1 1
+chrome86.0.4240.110 1 1
+chrome83.0.4103.116 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 7
+axios/1.11.0 20250826153221
+Go-http-client/2.0 20250807174444
+Go-http-client/1.1 20250812145238
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20250818194744
+okhttp/4.9.2 20250807182755
+axios/1.8.4 20250809085655
+Mozilla/5.0_(compatible;_Google-Site-Verification/1.0) 20250807173545
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+axios/1.11.0 20250826153221
+Go-http-client/2.0 20250807174444
+okhttp/4.9.2 20250807182755
+Go-http-client/1.1 20250812145238
+axios/1.8.4 20250809085655
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 487 2899
+From1 0 0
+From2 4 4
+From3 3 3
+From4 38921 69218
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 4 4
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 3
+https://zt4.top 1 1
+https://www.quora.com 1 1
+https://rankmath.com 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 10
+403 102 8005
+206 5 177593
+503 17 759820
+404 4379 15621757
+201 99 622415
+301 230 895
+400 5 340
+401 22 2072
+302 1191 1095
+499 764 0
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 72
+/favicon.png 2 -
+/about/ 1 -
+/wp-json/wp/v2/media/335 3 https://readysetcomply.com/wp-admin/post.php
+/wp-json/wp/v2/media/334 5 http://readysetcomply.com/wp-admin/post.php
+/wp-json/wp_ada_compliance_basic/v1/displaynotice/23 1657 http://readysetcomply.com/wp-admin/post.php
+/services 1 -
+/hello-world/ 4 -
+/sample-page/ 5 -
+/about-2/ 6 -
+/wordpress/ 1 -
+/accessibility-statement/ 4 -
+/accessibility-audits/ 2 -
+/path-to-image/report.jpg 2 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/accessibility-services/ 16 -
+/accessibility-compliance-services/accessibility-audits-assessments/ 614 https://readysetcomply.com/
+/accessibility-services/accessibility-audits/ 2 -
+/author/ 4 -
+/wp-admin/var(--inline-bg-image 24 http://readysetcomply.com/wp-admin/post.php
+/blog-2/ 1 -
+/wp-admin/installHook.js.map 2 -
+/checkout/ 4 -
+/humans.txt 1 -
+/privacy-policy-2/ 3 -
+/sample-blog-post/ 1 -
+/accessibility-remediation-testing/accessibility-audits/path-to-your-policy-review-image.jpg 32 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/wp-json/wp/v2/media/333 3 https://readysetcomply.com/wp-admin/post.php
+/main.js 1 -
+/llms.txt 1 -
+/author/wpexpert/ 2 -
+/app-ads.txt 2 -
+/2025/08/07/hello-world/ 1 -
+/wp-json/wp/v2/media/1 11 https://readysetcomply.com/wp-admin/site-editor.php
+/lander 6 -
+/our-accessibility-services/ 2 -
+/path-to-image/testing.jpg 2 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/contact-2/ 4 -
+/cart/ 3 -
+/cmd_sco 3 -
+/home/ 1 -
+/my-account/ 3 -
+/wp-json/wp/v2/pages/4141 5 -
+/wp-content/plugins/generateblocks-pro/dist/assets/placeholder-lg.min.jpg 82 http://readysetcomply.com/wp-admin/post.php
+/sellers.json 2 -
+/wp-json/wp/v2/media/61 4 http://readysetcomply.com/wp-admin/post.php
+/get-a-quote/ 7 -
+/category/blog/ 2 -
+/services/ 5 -
+/accessibility-compliance-services/ 5 -
+/path-to-image/roadmap.jpg 2 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/ 30 -
+/wp-json/wc/v3/products/NaN 3 http://readysetcomply.com/wp-admin/site-editor.php
+/wp-json/wp_ada_compliance_basic/v1/errorstatus/23 1657 http://readysetcomply.com/wp-admin/post.php
+/security.txt 1 -
+/accessibility-remediation-testing/accessibility-audits/path-to-your-vpat-image.jpg 32 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/compliance-consulting/ 6 -
+/path-to-image/discovery-scope.jpg 1 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/services-2/installHook.js.map 1 -
+/accessibility-remediation-testing/accessibility-audits/path-to-your-accessibility-audit-image.jpg 32 https://readysetcomply.com/accessibility-remediation-testing/accessibility-audits/
+/services-2/ 6 -
+/about-3/ 2 -
+/bd_mapp_domaincer_116409924.txt 1 -
+/my-account/lost-password/ 2 -
+/checkout 3 -
+/wp-json/wc/v3/products/496 1 https://readysetcomply.com/wp-admin/post.php
+/wp-json/wc/v3/products/23 1 http://readysetcomply.com/wp-admin/post.php
+/.well-known/security.txt 1 -
+/ads.txt 4 -
+/wp-json/wp/v2/pages/3554 1 -
+/styles/ 2 -
+/industries-served/ 9 -
+/wp-admin/admin-ajax.php 26 http://readysetcomply.com/wp-admin/customize.php
+/contact/ 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 239
+193.37.254.185 12217 15770 122509027 20250813083305
+216.224.124.58 8182 9431 54097159 20250810181558
+95.173.221.148 7016 12470 254522693 20250817194801
+95.173.221.40 3327 10535 461717465 20250829151002
+216.224.124.90 2986 6643 101273906 20250823191848
+95.173.221.116 1655 5513 145574566 20250825171924
+95.173.221.72 1489 2999 78428791 20250821154422
+75.71.194.110 1409 2827 48849651 20250816133611
+95.173.217.21 464 2180 38726702 20250818212935
+71.196.142.179 154 701 26991131 20250829091017
+54.213.219.87 1 1 19046 20250830142847
+47.251.67.0 9 9 152777 20250831072643
+193.56.22.61 1 1 19764 20250810221814
+20.55.61.179 2 8 72517 20250827044925
+185.247.137.248 0 1 814 
+35.93.45.86 2 2 46641 20250816234339
+23.191.80.8 1 1 24902 20250812083523
+40.77.179.77 0 1 412 
+91.98.27.203 3 37 240750 20250809042302
+209.38.46.87 2 4 47355 20250815142421
+34.22.245.55 3 42 2731014 20250810221838
+91.230.39.234 0 1 1681 
+77.30.170.85 8 248 8509582 20250823134355
+8.212.160.59 1 1 24915 20250812125250
+44.252.80.25 2 2 47679 20250823050822
+135.148.195.3 0 1 814 
+43.198.206.6 1 1 27472 20250810062748
+80.85.246.74 1 1 22870 20250815172206
+128.90.172.167 1 1 41739 20250812082204
+94.247.172.129 2 2 29520 20250807231025
+143.244.54.8 1 5 97033 20250809160532
+161.115.239.240 1 15 75972 20250808084319
+54.160.228.218 2 2 41844 20250808171459
+38.54.105.231 1 36 3099778 20250813174502
+23.106.28.205 1 1 19751 20250810205624
+172.82.65.38 1 1 19713 20250810110519
+34.116.159.235 2 39 870894 20250810103613
+184.182.3.87 2 39 3250409 20250823192822
+95.181.239.10 1 1 24915 20250812075810
+54.214.190.229 1 1 25190 20250826144529
+104.197.69.115 2 39 890289 20250811031631
+205.169.39.201 2 16 77190 20250811031255
+93.158.127.79 1 1 22682 20250825120419
+165.22.38.250 2 4 39700 20250831183538
+54.196.34.131 1 81 1456233 20250810062420
+45.80.210.92 2 36 198549 20250809042249
+162.218.92.191 3 3 90878 20250823083858
+87.236.176.41 1 1 23327 20250818160606
+35.95.10.52 2 46 1769720 20250809085651
+34.169.250.2 3 16 115102 20250810053429
+34.199.152.29 2 44 269295 20250808172720
+74.125.210.68 1 1 10130 20250807173545
+173.239.247.5 1 1 14745 20250807182938
+93.158.91.245 1 1 19026 20250831131401
+91.223.3.146 1 1 81777 20250817081257
+135.129.160.34 2 13 197468 20250809160610
+135.148.195.14 1 1 27502 20250829112507
+44.249.125.134 2 2 53635 20250824222620
+18.237.72.113 2 2 38072 20250830021936
+106.219.162.151 40 41 1506642 20250811085144
+34.135.143.163 1 28 265344 20250816091938
+87.236.176.215 0 1 5121 
+158.69.22.129 1 1 20028 20250826153221
+107.23.199.78 4 33 533850 20250807182925
+172.241.250.176 2 7 209653 20250809033328
+35.90.227.189 1 1 27286 20250827123700
+129.212.200.6 0 22 133270 
+80.85.245.145 1 1 25288 20250810092616
+148.113.202.94 10 10 243442 20250827213209
+35.163.234.187 2 2 46629 20250819015536
+54.81.138.163 1 1 20922 20250808124457
+138.68.166.157 4 49 508436 20250809080426
+94.130.148.164 1 1 23848 20250823062817
+34.56.159.242 1 1 24893 20250812092746
+82.133.52.24 1 1 41752 20250812082207
+137.184.120.36 2 4 49317 20250819185957
+34.223.221.93 2 2 53635 20250824013316
+8.209.99.111 1 1 24915 20250812125248
+62.93.176.71 2 38 376637 20250811163608
+172.105.20.12 1 7 118000 20250811161556
+34.222.105.65 1 1 20985 20250813125804
+18.184.85.125 1 1 91 20250809035614
+161.35.86.61 2 4 47756 20250825184719
+34.201.129.109 1 37 2775005 20250812080450
+84.20.16.101 1 5 92620 20250811163055
+15.204.182.106 4 4 86224 20250809061303
+54.145.183.119 1 1 86687 20250810224801
+87.236.176.34 0 1 814 
+47.254.152.228 1 1 24915 20250812145236
+34.118.78.90 2 38 789530 20250810010850
+149.57.180.165 1 1 24915 20250812055314
+157.230.217.88 1 1 19046 20250830202230
+54.187.89.54 4 82 3482482 20250810113841
+185.206.167.130 1 1 20922 20250808064914
+130.185.82.52 1 17 144045 20250809034408
+134.209.84.192 1 1 25247 20250810072613
+103.4.250.248 2 25 123699 20250807173824
+198.98.58.92 1 1 21889 20250809101450
+205.169.39.51 2 42 2818264 20250811032238
+207.199.139.201 2 25 123699 20250807173824
+167.88.60.235 2 8 213583 20250814081432
+20.115.49.110 1 4 63298 20250808043637
+198.44.133.16 0 1 814 
+87.236.176.242 0 1 5017 
+93.158.91.19 1 2 28100 20250826181524
+44.193.254.10 1 1 19026 20250830114503
+109.144.176.217 2 44 334293 20250808221248
+85.142.143.147 0 1 7482 
+103.131.95.71 1 5 75919 20250812080437
+34.202.9.38 0 1 40065 
+109.199.118.129 3 3 72903 20250828225012
+34.213.127.151 2 2 49808 20250813001847
+34.123.170.104 0 13 113017 
+54.200.164.180 2 2 54552 20250827041326
+34.56.109.164 2 2 22857 20250814214756
+52.26.116.52 2 2 49808 20250812002412
+44.251.8.3 2 2 47679 20250821002857
+52.54.213.50 3 28 145279 20250807175017
+95.173.221.21 1 6 76733 20250812080433
+149.102.232.233 1 6 76593 20250811160834
+35.165.215.140 3 28 145897 20250807174445
+34.226.221.246 1 81 1764464 20250810062418
+35.89.14.251 1 1 25452 20250830061114
+185.247.137.86 0 1 8452 
+184.151.190.167 1 4 87635 20250812082203
+199.244.88.224 1 1 23831 20250823125526
+185.247.137.72 1 1 23314 20250818194743
+103.131.95.72 1 14 174465 20250811162016
+3.148.226.55 1 36 3259812 20250816171021
+205.169.39.4 0 1 5675 
+205.169.39.17 0 1 253 
+35.165.15.210 2 2 45727 20250815225242
+149.57.180.42 1 1 23848 20250821071903
+172.99.243.76 1 1 18819 20250819161521
+37.65.167.67 1 1 22912 20250814090543
+87.236.176.229 0 1 5121 
+23.81.49.170 5 10 118154 20250827190442
+52.39.70.201 2 2 46641 20250817220505
+185.206.167.146 0 1 1681 
+131.202.14.152 1 1 24893 20250812160208
+59.14.17.48 5 45 377802 20250808083307
+209.38.171.212 1 1 24902 20250812083520
+205.169.39.171 2 15 74077 20250810010701
+4.32.113.195 1 12 52651 20250831190742
+194.61.77.90 0 1 8000 
+73.229.54.5 122 457 13724416 20250827044932
+54.185.141.7 1 1 25254 20250810141059
+54.234.110.115 1 34 3045468 20250813174059
+128.90.173.242 1 1 41752 20250812082222
+95.181.237.4 1 1 24915 20250812085628
+79.173.88.61 1 36 3099778 20250813174543
+205.169.39.57 0 1 743 
+3.16.188.105 9 90 442167 20250811040859
+134.209.27.244 2 4 47530 20250813185617
+104.152.222.36 0 1 814 
+165.227.65.19 2 4 53600 20250823194644
+143.198.22.208 2 4 56654 20250829051232
+146.190.48.28 2 4 48269 20250817194321
+34.213.72.201 2 2 50997 20250811035717
+212.193.167.37 0 1 1134 
+159.89.220.43 1 5 75910 20250812080112
+220.249.87.58 1 1 21916 20250809085056
+159.223.189.41 2 4 49307 20250821201834
+198.96.155.3 0 5 13365 
+44.228.242.45 8 8 83811 20250812134118
+192.36.109.120 1 1 23308 20250819044755
+62.93.176.90 0 1 1134 
+31.56.240.152 1 35 1454327 20250813174650
+103.62.50.138 1 5 73929 20250814081340
+79.148.177.106 1 5 97033 20250809160425
+172.94.96.29 1 1 98845 20250827011019
+5.164.211.229 1 1 23893 20250823154414
+34.215.158.162 1 1 27502 20250829023332
+176.103.89.113 0 1 24624 
+185.196.11.72 2 2 203 20250827153243
+51.222.167.157 2 2 28445 20250831140251
+45.56.143.185 1 1 18863 20250823035701
+57.128.45.193 1 36 2814080 20250811125231
+63.33.58.172 0 29 258201 
+43.161.253.177 1 33 3302757 20250817150441
+35.172.139.9 1 1 21889 20250809131634
+191.96.36.25 1 31 197166 20250812082012
+205.169.39.3 1 36 3259457 20250815044305
+3.236.162.94 1 1 27502 20250829100858
+45.32.102.204 1 1 25991 20250823200242
+185.247.137.207 0 1 5017 
+141.95.150.74 2 26 164720 20250807180005
+205.169.39.12 0 1 253 
+205.169.39.25 1 2 36350 20250814225720
+194.85.179.184 1 1 20922 20250808120141
+149.88.22.172 1 2 21827 20250824104746
+116.207.207.249 11 11 253078 20250812162120
+199.19.95.48 2 2 173818 20250813050558
+13.223.249.202 1 1 26813 20250824042621
+164.92.159.220 2 4 51171 20250811181232
+103.196.9.136 2 36 412291 20250810122223
+205.169.39.58 1 1 23831 20250821121119
+14.187.208.65 1 26 117664 20250824124436
+149.56.150.71 1 1 80495 20250809180307
+34.222.143.72 2 2 47679 20250821234535
+34.216.106.202 2 2 49865 20250810043854
+138.197.22.108 1 1 18806 20250819103248
+209.38.96.123 2 4 56180 20250827202449
+84.20.16.120 1 5 71532 20250809041131
+35.90.248.242 1 1 27266 20250828003000
+149.22.91.139 1 21 192953 20250811161110
+35.95.131.163 1 1 19026 20250831041344
+52.12.71.139 2 2 47689 20250819232143
+15.204.183.221 2 2 33866 20250810034050
+146.70.203.25 2 45 371631 20250812082847
+128.90.172.197 1 5 73929 20250814081339
+212.193.168.5 0 1 22233 
+157.245.149.107 1 1 19026 20250830103211
+87.236.176.45 0 1 8452 
+192.36.109.132 1 1 24893 20250812172421
+5.133.192.87 1 2 26077 20250810031957
+34.212.66.65 2 2 49248 20250809222126
+34.71.128.179 1 1 24893 20250811205058
+64.227.45.77 2 4 47355 20250815192501
+54.202.113.183 2 2 50508 20250810110301
+51.159.102.242 4 96 659123 20250809053956
+54.189.254.91 1 5 75779 20250811160437
+107.180.185.86 1 1 19764 20250810232949
+149.57.180.52 1 1 19144 20250813060904
+34.122.147.229 1 26 1109338 20250815044308
+52.33.17.163 2 2 45413 20250826033658
+83.36.24.103 1 1 24893 20250811202201
+47.236.65.119 1 1 24781 20250811192401
+159.89.161.130 2 4 46412 20250809200317
+188.166.76.213 2 4 39700 20250829205740
+91.206.68.179 1 1 21889 20250809092718
+147.93.44.37 1 1 71857 20250830104215
+146.70.128.165 1 35 603575 20250812075433
+47.89.187.81 1 1 24915 20250812145238
+82.21.209.133 1 1 25452 20250830061113
+93.158.91.25 1 2 24141 20250818142850
+185.130.227.201 4 4 92902 20250831004240
+44.222.87.121 1 1 24612 20250809211642
+178.62.82.141 7 7 209185 20250827090836
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 25
+20250807 499 1178 14977547 11
+20250808 674 1742 21850543 15
+20250809 3535 4309 25873956 32
+20250810 7375 8815 59858958 29
+20250811 8021 9118 67452735 23
+20250812 342 1025 15241763 29
+20250813 2830 6445 77426450 11
+20250814 1841 3034 63666460 10
+20250815 1133 2836 59825953 8
+20250816 319 626 24557747 9
+20250817 2529 3552 108820714 7
+20250818 467 2192 38836292 6
+20250819 589 1689 50646450 12
+20250820 813 1305 27942570 2
+20250821 111 134 3709636 6
+20250822 1812 3193 52731674 2
+20250823 1293 3939 66954822 14
+20250824 43 132 813797 7
+20250825 2497 7430 205860423 7
+20250826 1325 3679 112707905 8
+20250827 275 891 51611846 13
+20250828 743 3438 221325148 4
+20250829 322 1382 45764319 9
+20250830 10 10 256023 9
+20250831 17 30 330671 7
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30s-2mn 9
+0s-30s 227
+5mn-15mn 8
+1h+ 29
+2mn-5mn 2
+30mn-1h 6
+15mn-30mn 9
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 301
+/wp-admin/admin-ajax.php 14446 6957556 39 67
+/wp-json/wp_ada_compliance_basic/v1/errorstatus/4141 2737 653861 0 0
+/wp-json/wp_ada_compliance_basic/v1/displaynotice/4141 2736 1084435 0 0
+/wp-json/wp_ada_compliance_basic/v1/displaynotice/23 2654 736805 0 0
+/wp-json/wp_ada_compliance_basic/v1/errorstatus/23 2654 583796 0 0
+/ 1709 26346186 213 184
+/wp-json/rankmath/v1/updateMeta 1269 43929 0 0
+/wp-admin/post.php 1245 195857716 7 2
+/wp-json/wp_ada_compliance_basic/v1/displaynotice/496 645 258645 0 0
+/wp-json/wp_ada_compliance_basic/v1/errorstatus/496 645 156014 0 0
+/wp-json/wp/v2/media/4293 1 691 0 0
+/wp-json/wp/v2/media/4958 1 973 0 0
+/wp-json/generateblocks/v1/onboarding 1 20 0 0
+/wp-json/wp/v2/pages/6184/autosaves 2 13814 0 0
+/wp-json/wp/v2/posts 38 65549 0 0
+/wp-json/wp/v2/pages/74/autosaves 7 5379 0 0
+/accessibility-compliance-services/ 18 516611 0 0
+/wp-json/wp/v2/users/me 169 257785 0 1
+/wp-json/wp/v2/media/1386 3 2573 0 0
+/wp-json/wp_ada_compliance_basic/v1/displaynotice/22 68 8500 0 0
+/wp-admin/themes.php 40 828897 0 0
+/wp-json/wp/v2/blocks/5615 7 9504 0 0
+/wp-json/wp/v2/pages/4724 319 5628516 0 1
+/5603-2/ 66 1279012 0 0
+/wp-json/wp/v2/media/4270 1 1303 0 0
+/wp-json/wp/v2/media/4244 2 2584 0 0
+/wp-json/generateblocks/v1/get-attachment-by-url 253 64184 0 0
+/wp-json/wp/v2/blocks/5203 2 9923 0 0
+/wp-json/wc/store/v1/products/collection-data 20 1976 0 0
+/wp-json/siteground-central/v1/get-step/0 1 391 0 0
+/wp-json/wp/v2/media/4239 39 43646 0 0
+/wp-json/rankmath/v1/setupWizard/getStepData 11 5784 0 0
+/accessibility-remediation-testing/training-compliance-support-page-build/ 123 2607842 0 0
+/wp-json/generatepress-pro/v1/export 1 1565 0 0
+/wp-json/siteground-central/v1/get-step/1 2 838 0 0
+/wp-json/generateblocks/v1/pattern-library/categories 68 15280 0 0
+/wp-json/wp/v2/media/4399 1 709 0 0
+/wp-json/ssa/v1/appointment_types 3 165 0 0
+/wp-json/siteground-central/v1/save-step 2 810 0 0
+/wp-admin/index.php 2 17487 1 0
+/wp-json/wp/v2/gp_elements 10 19380 0 0
+/wp-json/wp/v2/pages/5603/autosaves 48 78227 0 0
+/contact/ 14 207519 2 3
+/wp-json/wp/v2/blocks/5201 2 5123 0 0
+/wp-json/wp/v2/blocks/5692/autosaves 1 6 0 0
+/wp-content/uploads/2025/08/image-2.webp 1 59378 0 0
+/wp-json/wp/v2/blocks/5734 4 5044 0 0
+/wp-json/wp/v2/media/313 1 592 0 0
+/wp-json/wp/v2/media/4631 1 1016 0 0
+/wp-json/wp/v2/blocks/5663 6 7027 0 0
+/wp-json/wp/v2/media/5455 1 1081 0 0
+/wp-json/wp/v2/media/1389 2 1765 0 0
+/remediation-support/ 3 47792 0 0
+/wp-json/wp/v2/media/1399 5 5102 0 0
+/wp-json/wp/v2/pages/5603 21 231034 0 0
+/wp-content/uploads/2025/08/image-2-300x300.webp 16 149240 0 0
+/wp-json/wp/v2/media/4507 3 3263 0 0
+/wp-json/wp/v2/pages/5205/autosaves 99 812592 0 0
+/wp-content/plugins/seo-by-rank-math/assets/admin/fonts/Rank-Math.ttf 30 572338 0 0
+/wp-json/ssa/v1/embed-inner 6 23064 0 0
+/accessibility-services/accessibility-audits/ 201 6071567 0 0
+/wp-admin/options-media.php 1 17013 0 0
+/accessibility-audits/ 6 128254 0 0
+/wp-json/wp/v2/blocks/4733 2 3438 0 0
+/wp-json/generateblocks/v1/pattern-library/patterns 23 659452 0 0
+/wp-admin/site-editor.php 17 2271258 0 0
+/wp-json/wp/v2/media/4731 1 1055 0 0
+/wp-json/wp/v2/block-renderer/woocommerce/product-categories 6 141 0 0
+/wp-json/wp/v2/media/310 1 597 0 0
+/feed/ 3 21150 0 0
+/wp-json/wp/v2/blocks/5204 2 3192 0 0
+/wp-json/wp/v2/blocks/5412 2 3779 0 0
+/wp-json/wp/v2/media 26 10043 0 0
+/wp-json/generatepress-site-library/v1/restore_content 2 76 0 0
+/wp-json/wp/v2/menus 17 6297 0 0
+/training-workshops/ 5 64251 0 0
+/wp-json/wc/store/v1 4 16434 0 0
+/wp-json/wp/v2/visualizer/4250 13 529440 0 0
+/wp-json/wp/v2/blocks/5411 2 3385 0 0
+/accessibility-compliance-services/remediation-testing/ 43 935284 0 0
+/wp-json/wp/v2/gp_elements/2268/autosaves 1 1185 0 0
+/wp-json/generatepress-site-library/v1/import_content 4 164 0 0
+/wp-json/wp/v2/blocks/5625 5 5375 0 0
+/get-a-quote/ 4 64623 0 1
+/wp-json/generatepress-site-library/v1/import_site_options 4 192 0 0
+/wp-json/wp/v2/block-patterns/patterns 69 2420772 0 0
+/comments/feed/ 2 1450 0 0
+/wp-json/wp/v2/block-renderer/ssa/booking 7 3047 0 0
+/wp-json/wp/v2/block-renderer/core/archives 8 931 0 0
+/wp-json/wc/store/v1/products 14 165 0 0
+/wp-json/wp/v2/media/1388 2 1764 0 0
+/wp-json/wp/v2/media/4192 9 10112 0 0
+/compliance-consulting/ 4 42980 0 0
+/wp-admin/plugins.php 35 2015990 0 0
+/wp-json/rankmath/v1/setupWizard/updateStepData 7 301 0 0
+/wp-content/uploads/2025/08/image.webp 1 40802 0 0
+/wp-json/wp_ada_compliance_basic/v1/errorstatus/22 68 13192 0 0
+/wp-json/wp/v2/tags 1 6 0 0
+/wp-json/wp/v2/media/4477 1 716 0 0
+/wp-admin/load-scripts.php 150 2691554 0 0
+/wp-json/wp/v2/blocks/5618 15 23283 0 0
+/wp-admin/nav-menus.php 7 172486 0 0
+/wp-json/wp/v2/taxonomies/category 4 3420 0 0
+/wp-json/wp/v2/pages/23 127 2605993 0 0
+/wp-json/wp/v2/pages/6184 7 26874 0 0
+/wp-json/wp/v2/pages/4141/autosaves 100 1860065 0 0
+/wp-json/generatepress-site-library/v1/restore_theme_options 2 98 0 0
+/wp-json/wp/v2/media/4671 3 3399 0 0
+/wp-json/wp/v2/taxonomies/product_brand 1 987 0 0
+/wp-json/wp/v2/block-renderer/core/calendar 5 2165 0 0
+/wp-admin/tools.php 2 33275 0 0
+/wp-admin/update-core.php 3 50966 0 0
+/wp-json/wp/v2/pages/74 2 20141 0 0
+/wp-json/wp/v2/pages/496/autosaves 220 3202643 0 0
+/wp-json/wp/v2/media/1207 2 1247 0 0
+/wp-json/wp/v2/pages/5410 118 2183948 0 0
+/the-importance-of-a-solid-keyword-strategy/ 1 15474 0 0
+/wp-json/wp/v2/blocks/5202 2 6966 0 0
+/sitemap_index.xml 1 337 0 0
+/wp-json/wp/v2/gp_elements/5852 7 7753 0 0
+/wp-admin/plugin-install.php 16 460081 0 0
+/wp-json/wp/v2/wp_pattern_category 196 27363 0 0
+/wp-json/wp/v2/blocks/5692 6 8033 0 0
+/wp-json/wp/v2/pages/5741/autosaves 1 1391 0 0
+/wp-json/wp/v2/undefined/ 2 12 0 0
+/wp-json/siteground-central/v1/get-step 1 391 0 0
+/wp-json/wp/v2/types/wp_block 24 19820 0 0
+/wp-json/generateblocks/v1/pattern-library/libraries 26 4487 0 0
+/wp-json/wp/v2/blocks/5739 1 1160 0 0
+/wp-json/wp/v2/media/5417 1 1114 0 0
+/wp-json/siteground-central/v1/get-step/3 1 4424 0 0
+/wp-json/wp/v2/blocks/5738 1 2183 0 0
+/wp-json/wp/v2/templates 165 11676 0 0
+/wp-json/wp/v2/pages/22 2 26950 0 0
+/wp-json/wp/v2/media/3940 1 1015 0 0
+/wp-json/wp_ada_compliance_basic/v1/errorstatus/74 56 7112 0 0
+/wp-admin/erase-personal-data.php 1 18897 0 0
+/wp-json/wp/v2/media/4720 1 1058 0 0
+/wp-json/wp/v2/pages/4251/autosaves 1 874 0 0
+/wp-json/wp/v2/blocks/5605 1 1164 0 0
+/wp-admin/post-new.php 15 1813247 0 0
+/wp-content/uploads/2025/08/aIDn0FGsbswqTLRq_iStock-2161328710-300x200.avif 16 214230 0 0
+/wp-json/wp/v2/media/4292 1 699 0 0
+/wp-admin/options-discussion.php 1 18810 0 0
+/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2 3 438180 0 0
+/wp-json/wp/v2/pages/4618 100 877389 0 0
+/wp-admin/customize.php 59 10091852 1 0
+/wp-json/wp/v2/gp_elements/ 2 3876 0 0
+/wp-json/wp/v2/blocks/5199 2 3548 0 0
+/wp-json/wp/v2/settings 233 420351 0 0
+/wp-json/wp/v2/pages/4596 6 95127 0 0
+/wp-json/wp/v2/search 82 20533 0 0
+/wp-json/wp/v2/posts/2453 1 1735 0 0
+/wp-json/wp/v2/pages/4617 91 1471810 0 0
+/wp-json/wp/v2/media/4291 1 696 0 0
+/wp-json/generatepress-site-library/v1/get_site_data 4 867 0 0
+/wp-json/wp/v2/product 23 246 0 0
+/wp-json/wp/v2/media/4628 1 1023 0 0
+/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff2 5 32440 0 0
+/wp-json/generatepress-site-library/v1/import_theme_options 4 168 0 0
+/wp-json/wp/v2/pages/ 67 142422 0 0
+/wp-json/wp/v2/users 159 22258 0 0
+/wp-json/wp/v2/pages/5410/autosaves 106 812546 0 0
+//wp-json/wc/store/products/collection-data 2 203 2 2
+/wp-json/wp/v2/pages/23/autosaves 142 1341295 0 0
+/wp-json/wp/v2/blocks/5414 2 3220 0 0
+/wp-json/wp/v2/pages/4142 45 490983 0 0
+/wp-json/wp/v2/media/4347 1 704 0 0
+/wp-json/wp/v2/media/1635 2 1341 0 0
+/digital-accessibility-compliance-that-works/ 31 564755 0 0
+/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2 7 2286396 0 0
+/wp-json/generatepress-site-library/v1/get_sites 7 25698 0 0
+/wp-json/wp/v2/gp_elements/5852/autosaves 5 6941 0 0
+/wp-json/wp/v2/widget-types 58 86691 0 1
+/wp-json/wp/v2/types/post 9 7509 0 0
+/wp-json/wp/v2/blocks/5652 8 11553 0 0
+/accessibility-remediation-testing/accessibility-audits/ 149 4583041 2 3
+/wp-json/wp/v2/blocks/5686 6 9875 0 0
+/wp-content/uploads/woocommerce-placeholder-300x300.webp 20 27240 0 0
+/services-2/ 2 57154 0 0
+/wp-json/wp/v2/block-renderer/core/latest-comments 11 1091 0 0
+/wp-admin/options-reading.php 1 17963 0 0
+/wp-json/generatepress-pro/v1/modules 9 427 0 0
+/wp-json/wp/v2/pages/3554/autosaves 43 357918 0 0
+/accessibility-remediation-testing/ 163 3971456 1 1
+/wp-json/wp/v2/ 12 170771 0 0
+/industries-served/ 3 47699 0 0
+/wp-json/wp/v2/media/4624 12 12430 0 0
+/wp-json/wp/v2/media/4189 1 1094 0 0
+/wp-json/wp/v2/media/4737 6 6678 0 0
+/wp-json/wp/v2/media/4565 1 1107 0 0
+/wp-json/siteground-central/v1/dashboard 22 26577 0 0
+/wp-json/wp/v2/gp_elements/2268 3 4466 0 0
+/wp-content/plugins/simply-schedule-appointments/assets/fonts/roboto-regular-webfont.woff2 4 77376 0 0
+/wp-json/wp/v2/blocks 276 2177722 0 0
+/wp-json/wp/v2/media/4280 4 5182 0 0
+/wp-json/wp/v2/categories/1 8 2288 0 0
+/wp-json/wp/v2/media/4186 3 3304 0 0
+/wp-json/wp/v2/templates/lookup 41 921 0 0
+/accessibility-remediation-testing/remediation-testing/ 96 2169798 0 0
+/wp-json/wp/v2/blocks/4314/autosaves 1 33 0 0
+/wp-json/wp_ada_compliance_basic/v1/displaynotice/74 56 336 0 0
+/wp-json/wp/v2/taxonomies/product_cat 2 1837 0 0
+/wp-json/wp/v2/media/5316 2 2120 0 0
+/accessibility-compliance-services/accessibility-audits/ 12 256676 0 0
+/wp-json/wp/v2/block-renderer/core/tag-cloud 6 541 0 0
+/wp-json/ 2 88864 0 0
+/wp-json/wp/v2/media/4630 1 1058 0 0
+/wp-content/uploads/2025/08/aIDn0FGsbswqTLRq_iStock-2161328710-768x512.avif 5 239725 0 0
+/wp-json/generateblocks/v1/dynamic-tag-replacements 206 24704 0 0
+/wp-admin/admin.php 39 738271 0 0
+/wp-json/wp/v2/block-renderer/core/rss 9 4041 0 0
+/wp-admin/widgets.php 1 104722 0 0
+/wp-json/wp/v2/media/4405 1 715 0 0
+/wp-admin/edit-comments.php 1 20292 0 0
+/wp-admin/upload.php 9 285832 0 0
+/blog/ 4 78909 0 0
+/wp-content/uploads/2025/08/aIDn0FGsbswqTLRq_iStock-2161328710-600x400.avif 1 34619 0 0
+/wp-json/wp/v2/media/4185 1 1484 0 0
+/wp-json/wp/v2/pages/4141 59 1773510 0 0
+/wp-json/wp/v2/media/4729 1 1058 0 0
+/wp-json/wp/v2/media/1398 5 5099 0 0
+/wp-json/wp/v2/blocks/5413 2 6582 0 0
+/cart/ 20 842623 16 14
+/wp-json/wp/v2/blocks/5658 5 8149 0 0
+/wp-json/wp/v2/media/311 1 597 0 0
+/wp-content/themes/kadence/assets/fonts/star.woff2 1 532 0 0
+/our-accessibility-services/ 5 98676 0 0
+/how-local-seo-helps-grow-your-business/ 2 32759 0 1
+/wp-admin/async-upload.php 201 190747 0 0
+/wp-json/generateblocks/v1/get-wp-query 47 147004 0 0
+/wp-json/wp/v2/blocks/4725 2 3468 0 0
+/wp-admin/edit.php 196 5346588 1 3
+/wp-content/plugins/generateblocks/assets/fonts/generateblocks.ttf 32 22116 0 1
+/wp-json/wp/v2/media/4322 7 4796 0 0
+/wp-json/wp/v2/taxonomies 198 315758 0 0
+/wp-json/wp/v2/blocks/5622 9 12951 0 0
+/wp-admin/options-writing.php 2 35949 0 0
+/services/ 25 633014 0 0
+/wp-json/wp/v2/template-parts 16 16425 0 0
+/wp-json/wp/v2/media/4348 34 25171 0 0
+/wp-admin/load-styles.php 174 11123806 0 0
+/wp-json/wp/v2/users/1 132 14119 0 0
+/wp-content/plugins/simply-schedule-appointments/assets/fonts/roboto-medium-webfont.woff2 3 58476 0 0
+/wp-json/oembed/1.0/proxy 1 338 0 0
+/wp-json/wp-block-editor/v1/navigation-fallback 13 9987 0 0
+/wp-json/wp/v2/blocks/5616 1 1046 0 0
+/wp-json/generatepress-site-library/v1/activate_plugins 4 204 0 0
+/wp-json/wp/v2/media/4632 1 1084 0 0
+/wp-json/wp/v2/media/4506 1 1134 0 0
+/style/ 3 54689 0 1
+/wp-json/wp/v2/media/4629 1 1015 0 0
+/wp-json/wp/v2/navigation 39 51903 0 0
+/wp-json/wc/v3/products 4 51 0 0
+/wp-content/uploads/2025/08/aIDn0FGsbswqTLRq_iStock-2161328710-scaled.avif 11 2169808 0 0
+/wp-json/wp/v2/media/4627 1 1051 0 0
+/wp-json/wp/v2/comments 23 159 0 0
+/wp-json/generateblocks/v1/pattern-library/get-cache-data 26 2482 0 0
+/wp-json/wp/v2/pages/5205 139 2757646 0 0
+/wp-json/wp/v2/media/4404 1 1223 0 0
+/wp-login.php 16 28304 5 0
+/wp-admin/theme-install.php 3 56644 0 0
+/wp-json/wp/v2/pages/3554 24 478385 0 0
+/wp-json/wp/v2/pages/4617/autosaves 65 534521 0 0
+/wp-json/wp/v2/pages/4596/autosaves 53 307319 0 0
+/wp-json/wp/v2/types 8 21589 0 0
+/wp-json/wp/v2/blocks/5627 13 21235 0 0
+/wp-json/wp/v2/block-directory/search 10 3144 0 0
+/wp-admin/revision.php 5 151315 0 0
+/author/rtmakatura1wordpressgmail-com/ 2 28744 0 0
+/wp-json/wp/v2/media/5423 1 1079 0 0
+/wp-json/wp/v2/block-renderer/woocommerce/product-new 12 282 0 0
+/wp-json/wp/v2/media/312 1 599 0 0
+/wp-json/wp/v2/pages/496 207 4940773 0 0
+/home-2/ 1 23366 0 0
+/about/ 5 99882 0 1
+/wp-json/wp/v2/block-renderer/ssa/upcoming-appointments 8 986 0 0
+/wp-json/wp/v2/pages/5741 12 128038 0 0
+/wp-json/wp/v2/pages/500 1 10672 0 0
+/accessibility-compliance-services/accessibility-audits-assessments/ 251 4793647 0 0
+/wp-json/wp/v2/pages/3560 8 74432 0 0
+/wp-json/generateblocks/v1/post-record 2 11490 0 0
+/test-page/ 9 157197 0 1
+/accessibility-services/ 41 1011122 0 1
+/wp-json/wp/v2/pages 37 844869 0 0
+/wp-json/wp/v2/users/ 1 1605 0 1
+/wp-admin/update.php 2 24108 0 0
+/wp-json/wp/v2/blocks/4329 2 2690 0 0
+/wp-json/wp/v2/blocks/5200 2 3636 0 0
+/wp-json/wp/v2/blocks/4314 2 4499 0 0
+/wp-admin/options-general.php 4 158718 0 0
+/wp-json/wp/v2/media/1387 3 2569 0 0
+/wp-json/siteground-central/v1/exit-wizard 1 130 0 0
+/wp-json/wp/v2/blocks/5651 5 8809 0 0
+/wp-json/wp/v2/pages/4724/autosaves 354 2620226 0 0
+/wp-json/wp/v2/blocks/4726 2 27669 0 0
+/wp-json/wp/v2/categories 19 5295 0 0
+/wp-json/wp/v2/media/4716 1 1098 0 0
+/wp-content/uploads/2025/08/image-300x167.webp 16 85410 0 0
+/wp-json/wp/v2/pages/22/autosaves 10 12979 0 0
+/wp-content/uploads/woocommerce-placeholder.webp 1 9892 0 0
+END_SIDER

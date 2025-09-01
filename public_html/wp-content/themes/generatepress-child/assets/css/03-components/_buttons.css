@@ -1,0 +1,446 @@
+/**
+ * Button Components
+ * Button styles and variations for the accessibility platform
+ */
+
+/* ==========================================================================
+   BASE BUTTON
+   ========================================================================== */
+
+.btn,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  min-height: 44px; /* WCAG touch target requirement */
+  min-width: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover,
+.button:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.btn:focus,
+.button:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+.btn:active,
+.button:active {
+  transform: translateY(0);
+}
+
+.btn[disabled],
+.button[disabled],
+.btn:disabled,
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS
+   ========================================================================== */
+
+/* Primary button */
+.btn--primary,
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover,
+.button--primary:hover {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Secondary button */
+.btn--secondary,
+.button--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
+}
+
+.btn--secondary:hover,
+.button--secondary:hover {
+  background: #3A6269;
+  border-color: #3A6269;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Outline button */
+.btn--outline,
+.button--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--outline:hover,
+.button--outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Ghost button */
+.btn--ghost,
+.button--ghost {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.btn--ghost:hover,
+.button--ghost:hover {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-200);
+}
+
+/* White button */
+.btn--white,
+.button--white {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+}
+
+.btn--white:hover,
+.button--white:hover {
+  background-color: var(--color-gray-50);
+  border-color: var(--color-gray-100);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Danger/Error button */
+.btn--danger,
+.button--danger {
+  background-color: var(--color-error);
+  color: var(--color-white);
+  border-color: var(--color-error);
+}
+
+.btn--danger:hover,
+.button--danger:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Success button */
+.btn--success,
+.button--success {
+  background-color: var(--color-success);
+  color: var(--color-white);
+  border-color: var(--color-success);
+}
+
+.btn--success:hover,
+.button--success:hover {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+/* ==========================================================================
+   BUTTON SIZES
+   ========================================================================== */
+
+/* Small button */
+.btn--sm,
+.button--sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  min-height: 36px;
+}
+
+/* Large button */
+.btn--lg,
+.button--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  min-height: 52px;
+}
+
+/* Extra large button */
+.btn--xl,
+.button--xl {
+  padding: var(--space-5) var(--space-10);
+  font-size: var(--text-xl);
+  min-height: 60px;
+}
+
+/* ==========================================================================
+   BUTTON STATES
+   ========================================================================== */
+
+/* Loading state */
+.btn--loading,
+.button--loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn--loading::after,
+.button--loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: var(--radius-full);
+  animation: button-spin 1s linear infinite;
+}
+
+@keyframes button-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   BUTTON GROUPS
+   ========================================================================== */
+
+.btn-group {
+  display: inline-flex;
+  gap: 0;
+}
+
+.btn-group .btn,
+.btn-group .button {
+  border-radius: 0;
+  margin-left: -2px;
+}
+
+.btn-group .btn:first-child,
+.btn-group .button:first-child {
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+  margin-left: 0;
+}
+
+.btn-group .btn:last-child,
+.btn-group .button:last-child {
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.btn-group .btn:hover,
+.btn-group .button:hover {
+  z-index: 1;
+}
+
+/* ==========================================================================
+   ICON BUTTONS
+   ========================================================================== */
+
+.btn--icon,
+.button--icon {
+  padding: var(--space-3);
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+}
+
+.btn--icon.btn--sm,
+.button--icon.button--sm {
+  padding: var(--space-2);
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.btn--icon.btn--lg,
+.button--icon.button--lg {
+  padding: var(--space-4);
+  min-width: 56px;
+  min-height: 56px;
+}
+
+/* ==========================================================================
+   BUTTON WITH ICONS
+   ========================================================================== */
+
+.btn--with-icon,
+.button--with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btn--with-icon .icon,
+.button--with-icon .icon {
+  flex-shrink: 0;
+}
+
+.btn--with-icon .icon--left,
+.button--with-icon .icon--left {
+  margin-right: var(--space-1);
+}
+
+.btn--with-icon .icon--right,
+.button--with-icon .icon--right {
+  margin-left: var(--space-1);
+}
+
+/* ==========================================================================
+   CTA BUTTONS (Call-to-Action)
+   ========================================================================== */
+
+.btn-cta {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-normal) var(--ease-in-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  background: #b8860b;
+}
+
+.btn-cta:focus {
+  outline: 3px solid rgba(218, 165, 32, 0.4);
+  outline-offset: 2px;
+}
+
+/* CTA button with pulse animation */
+.btn-cta--pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: var(--shadow-lg);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.4);
+  }
+}
+
+/* ==========================================================================
+   FLOATING ACTION BUTTON
+   ========================================================================== */
+
+.fab {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-normal) var(--ease-in-out);
+  z-index: var(--z-fixed);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+.fab:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn,
+  .button {
+    border-width: 3px;
+  }
+  
+  .btn--outline,
+  .button--outline {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .button,
+  .btn-cta,
+  .fab {
+    transition: none;
+    animation: none;
+  }
+  
+  .btn:hover,
+  .button:hover,
+  .btn-cta:hover {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard users */
+.btn:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .btn--responsive,
+  .button--responsive {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .btn-cta {
+    font-size: var(--text-base);
+    padding: var(--space-4) var(--space-6);
+  }
+  
+  .fab {
+    bottom: var(--space-6);
+    right: var(--space-6);
+  }
+}

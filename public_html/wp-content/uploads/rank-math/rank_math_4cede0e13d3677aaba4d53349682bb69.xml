@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//readysetcomply.com/main-sitemap.xsl"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://readysetcomply.com/post-sitemap.xml</loc>
+		<lastmod>2023-01-04T18:15:18+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://readysetcomply.com/page-sitemap.xml</loc>
+		<lastmod>2025-09-01T05:50:43+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://readysetcomply.com/category-sitemap.xml</loc>
+		<lastmod>2023-01-04T18:15:18+00:00</lastmod>
+	</sitemap>
+</sitemapindex>

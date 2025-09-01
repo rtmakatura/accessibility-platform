@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60">
+  <defs>
+    <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <circle cx="2" cy="2" r="1.6" fill="#E1E6ED"></circle>
+    </pattern>
+  </defs>
+  <rect width="220" height="60" fill="url(#d)" opacity="0.45"></rect>
+</svg>

@@ -1,0 +1,313 @@
+/**
+ * Layout Utilities
+ * Reusable layout classes and containers
+ */
+
+/* ==========================================================================
+   CONTAINERS
+   ========================================================================== */
+
+.u-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.u-container--sm {
+  max-width: var(--container-sm);
+}
+
+.u-container--md {
+  max-width: var(--container-md);
+}
+
+.u-container--lg {
+  max-width: var(--container-lg);
+}
+
+.u-container--xl {
+  max-width: var(--container-xl);
+}
+
+.u-container--2xl {
+  max-width: var(--container-2xl);
+}
+
+/* Default container */
+.u-container {
+  max-width: var(--container-xl);
+}
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+
+.u-section {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+.u-section--sm {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+.u-section--lg {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+.u-section--xl {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+}
+
+/* Section backgrounds */
+.u-section--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.u-section--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.u-section--gray {
+  background-color: var(--color-gray-50);
+}
+
+.u-section--white {
+  background-color: var(--color-white);
+}
+
+/* Full bleed sections */
+.u-section--full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* ==========================================================================
+   FLEXBOX UTILITIES
+   ========================================================================== */
+
+.u-flex {
+  display: flex;
+}
+
+.u-flex--column {
+  flex-direction: column;
+}
+
+.u-flex--row-reverse {
+  flex-direction: row-reverse;
+}
+
+.u-flex--column-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Flex wrap */
+.u-flex--wrap {
+  flex-wrap: wrap;
+}
+
+.u-flex--nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Justify content */
+.u-flex--justify-start {
+  justify-content: flex-start;
+}
+
+.u-flex--justify-end {
+  justify-content: flex-end;
+}
+
+.u-flex--justify-center {
+  justify-content: center;
+}
+
+.u-flex--justify-between {
+  justify-content: space-between;
+}
+
+.u-flex--justify-around {
+  justify-content: space-around;
+}
+
+.u-flex--justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Align items */
+.u-flex--align-start {
+  align-items: flex-start;
+}
+
+.u-flex--align-end {
+  align-items: flex-end;
+}
+
+.u-flex--align-center {
+  align-items: center;
+}
+
+.u-flex--align-baseline {
+  align-items: baseline;
+}
+
+.u-flex--align-stretch {
+  align-items: stretch;
+}
+
+/* Flex grow/shrink */
+.u-flex-1 {
+  flex: 1 1 0%;
+}
+
+.u-flex-auto {
+  flex: 1 1 auto;
+}
+
+.u-flex-initial {
+  flex: 0 1 auto;
+}
+
+.u-flex-none {
+  flex: none;
+}
+
+/* ==========================================================================
+   POSITION UTILITIES
+   ========================================================================== */
+
+.u-relative {
+  position: relative;
+}
+
+.u-absolute {
+  position: absolute;
+}
+
+.u-fixed {
+  position: fixed;
+}
+
+.u-sticky {
+  position: sticky;
+}
+
+/* ==========================================================================
+   DISPLAY UTILITIES
+   ========================================================================== */
+
+.u-block {
+  display: block;
+}
+
+.u-inline-block {
+  display: inline-block;
+}
+
+.u-inline {
+  display: inline;
+}
+
+.u-hidden {
+  display: none;
+}
+
+/* Responsive display utilities */
+@media (min-width: 768px) {
+  .u-md-block {
+    display: block;
+  }
+  
+  .u-md-hidden {
+    display: none;
+  }
+  
+  .u-md-flex {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .u-lg-block {
+    display: block;
+  }
+  
+  .u-lg-hidden {
+    display: none;
+  }
+  
+  .u-lg-flex {
+    display: flex;
+  }
+}
+
+/* ==========================================================================
+   OVERFLOW UTILITIES
+   ========================================================================== */
+
+.u-overflow-hidden {
+  overflow: hidden;
+}
+
+.u-overflow-auto {
+  overflow: auto;
+}
+
+.u-overflow-scroll {
+  overflow: scroll;
+}
+
+.u-overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.u-overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+/* ==========================================================================
+   Z-INDEX UTILITIES
+   ========================================================================== */
+
+.u-z-dropdown {
+  z-index: var(--z-dropdown);
+}
+
+.u-z-sticky {
+  z-index: var(--z-sticky);
+}
+
+.u-z-fixed {
+  z-index: var(--z-fixed);
+}
+
+.u-z-modal {
+  z-index: var(--z-modal);
+}
+
+.u-z-tooltip {
+  z-index: var(--z-tooltip);
+}
+
+/* ==========================================================================
+   MISSING SECTION UTILITIES
+   ========================================================================== */
+
+.u-section--lg {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+.bg-gray-50 {
+  background-color: var(--color-gray-50);
+}

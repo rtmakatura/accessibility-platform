@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 800">
+  <rect fill="#DE54D9" width="1600" height="800"></rect>
+  <g stroke="#000" stroke-width="66.7" stroke-opacity="0.05">
+    <circle fill="#DE54D9" cx="0" cy="0" r="1800"></circle>
+    <circle fill="#de45d9" cx="0" cy="0" r="1700"></circle>
+    <circle fill="#dd35da" cx="0" cy="0" r="1600"></circle>
+    <circle fill="#dd25db" cx="0" cy="0" r="1500"></circle>
+    <circle fill="#d41ed3" cx="0" cy="0" r="1400"></circle>
+    <circle fill="#c91ac9" cx="0" cy="0" r="1300"></circle>
+    <circle fill="#bc16bd" cx="0" cy="0" r="1200"></circle>
+    <circle fill="#ae13b0" cx="0" cy="0" r="1100"></circle>
+    <circle fill="#a10fa4" cx="0" cy="0" r="1000"></circle>
+    <circle fill="#930c97" cx="0" cy="0" r="900"></circle>
+    <circle fill="#850a89" cx="0" cy="0" r="800"></circle>
+    <circle fill="#77077c" cx="0" cy="0" r="700"></circle>
+    <circle fill="#69056e" cx="0" cy="0" r="600"></circle>
+    <circle fill="#5b0460" cx="0" cy="0" r="500"></circle>
+    <circle fill="#4c0251" cx="0" cy="0" r="400"></circle>
+    <circle fill="#3e0142" cx="0" cy="0" r="300"></circle>
+    <circle fill="#300033" cx="0" cy="0" r="200"></circle>
+    <circle fill="#210024" cx="0" cy="0" r="100"></circle>
+  </g>
+</svg>

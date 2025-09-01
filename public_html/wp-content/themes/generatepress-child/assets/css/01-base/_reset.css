@@ -1,0 +1,323 @@
+/**
+ * CSS Reset and Normalization
+ * Modern CSS reset with accessibility considerations
+ */
+
+/* ==========================================================================
+   MODERN CSS RESET
+   ========================================================================== */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation on mobile */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* ==========================================================================
+   LIST STYLES
+   ========================================================================== */
+
+/* Remove list styles on ul, ol elements with a list role */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set default list styles */
+ul,
+ol {
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+/* Navigation lists */
+nav ul,
+nav ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav li {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY RESET
+   ========================================================================== */
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-4);
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-normal);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-decoration-thickness: 2px;
+}
+
+a:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Remove text decoration from card/button links */
+a.u-card,
+a.btn,
+a.button {
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   FORM ELEMENTS RESET
+   ========================================================================== */
+
+/* Form controls */
+input,
+textarea,
+select {
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  background: var(--color-white);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+}
+
+/* Placeholder text */
+::placeholder {
+  color: var(--color-gray-500);
+  opacity: 1;
+}
+
+/* Remove default field appearance */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ==========================================================================
+   TABLE RESET
+   ========================================================================== */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+th {
+  font-weight: var(--weight-semibold);
+  color: var(--color-gray-900);
+  background: var(--color-gray-50);
+}
+
+/* ==========================================================================
+   MEDIA ELEMENTS
+   ========================================================================== */
+
+/* Ensure embedded content respects container */
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+
+/* SVG fallback */
+svg {
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY RESETS
+   ========================================================================== */
+
+/* Hide content from screen readers when appropriate */
+[hidden] {
+  display: none !important;
+}
+
+/* Improve readability for dyslexic users */
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  img {
+    filter: contrast(1.2);
+  }
+}
+
+/* ==========================================================================
+   WORDPRESS SPECIFIC RESETS
+   ========================================================================== */
+
+/* WordPress alignment classes */
+.alignleft {
+  float: left;
+  margin-right: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.alignright {
+  float: right;
+  margin-left: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignwide {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.alignfull {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+/* WordPress caption styles */
+.wp-caption {
+  max-width: 100%;
+}
+
+.wp-caption-text {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}

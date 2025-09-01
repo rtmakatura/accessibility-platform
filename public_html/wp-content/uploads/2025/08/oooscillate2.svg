@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" version="1.1" viewBox="0 0 1422 800" opacity="0.28">
+  <defs>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="oooscillate-grad">
+      <stop stop-color="#9E9E9F" stop-opacity="1" offset="0%"></stop>
+      <stop stop-color="hsl(0, 0%, 0%)" stop-opacity="1" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <g stroke-width="2.5" stroke="url(#oooscillate-grad)" fill="none" stroke-linecap="round">
+    <path d="M 0 260 Q 355.5 255 711 400 Q 1066.5 545 1422 260" opacity="1.00"></path>
+    <path d="M 0 234 Q 355.5 255 711 400 Q 1066.5 545 1422 234" opacity="0.89"></path>
+    <path d="M 0 208 Q 355.5 255 711 400 Q 1066.5 545 1422 208" opacity="0.79"></path>
+    <path d="M 0 182 Q 355.5 255 711 400 Q 1066.5 545 1422 182" opacity="0.68"></path>
+    <path d="M 0 156 Q 355.5 255 711 400 Q 1066.5 545 1422 156" opacity="0.58"></path>
+    <path d="M 0 130 Q 355.5 255 711 400 Q 1066.5 545 1422 130" opacity="0.47"></path>
+    <path d="M 0 104 Q 355.5 255 711 400 Q 1066.5 545 1422 104" opacity="0.37"></path>
+    <path d="M 0 78 Q 355.5 255 711 400 Q 1066.5 545 1422 78" opacity="0.26"></path>
+    <path d="M 0 52 Q 355.5 255 711 400 Q 1066.5 545 1422 52" opacity="0.16"></path>
+  </g>
+</svg>

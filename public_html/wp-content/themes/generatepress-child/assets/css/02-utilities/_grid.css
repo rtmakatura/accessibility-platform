@@ -1,0 +1,315 @@
+/**
+ * Grid Utilities
+ * CSS Grid and responsive grid systems
+ */
+
+/* ==========================================================================
+   CSS GRID UTILITIES
+   ========================================================================== */
+
+.u-grid {
+  display: grid;
+}
+
+/* Grid template columns */
+.u-grid--1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.u-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.u-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.u-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.u-grid--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.u-grid--6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.u-grid--12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+/* Auto-fit grids */
+.u-grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.u-grid--auto-sm {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.u-grid--auto-lg {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ==========================================================================
+   GRID GAPS
+   ========================================================================== */
+
+.u-grid--gap-2 {
+  gap: var(--space-2);
+}
+
+.u-grid--gap-4 {
+  gap: var(--space-4);
+}
+
+.u-grid--gap-6 {
+  gap: var(--space-6);
+}
+
+.u-grid--gap-8 {
+  gap: var(--space-8);
+}
+
+.u-grid--gap-10 {
+  gap: var(--space-10);
+}
+
+.u-grid--gap-12 {
+  gap: var(--space-12);
+}
+
+/* Column and row gaps */
+.u-grid--col-gap-4 {
+  column-gap: var(--space-4);
+}
+
+.u-grid--row-gap-4 {
+  row-gap: var(--space-4);
+}
+
+.u-grid--col-gap-6 {
+  column-gap: var(--space-6);
+}
+
+.u-grid--row-gap-6 {
+  row-gap: var(--space-6);
+}
+
+/* ==========================================================================
+   GRID ITEM UTILITIES
+   ========================================================================== */
+
+/* Column span */
+.u-col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.u-col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.u-col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.u-col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
+.u-col-span-5 {
+  grid-column: span 5 / span 5;
+}
+
+.u-col-span-6 {
+  grid-column: span 6 / span 6;
+}
+
+.u-col-span-full {
+  grid-column: 1 / -1;
+}
+
+/* Row span */
+.u-row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
+.u-row-span-2 {
+  grid-row: span 2 / span 2;
+}
+
+.u-row-span-3 {
+  grid-row: span 3 / span 3;
+}
+
+.u-row-span-4 {
+  grid-row: span 4 / span 4;
+}
+
+.u-row-span-full {
+  grid-row: 1 / -1;
+}
+
+/* ==========================================================================
+   RESPONSIVE GRID UTILITIES
+   ========================================================================== */
+
+/* Tablet breakpoint (768px+) */
+@media (min-width: 768px) {
+  .u-md-grid--1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .u-md-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .u-md-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .u-md-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .u-md-col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+  
+  .u-md-col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+  
+  .u-md-col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  
+  .u-md-col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+}
+
+/* Desktop breakpoint (1024px+) */
+@media (min-width: 1024px) {
+  .u-lg-grid--1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .u-lg-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .u-lg-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .u-lg-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .u-lg-grid--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  
+  .u-lg-grid--6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  
+  .u-lg-col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+  
+  .u-lg-col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+  
+  .u-lg-col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  
+  .u-lg-col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+  
+  .u-lg-col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+  
+  .u-lg-col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+}
+
+/* ==========================================================================
+   COMMON GRID PATTERNS
+   ========================================================================== */
+
+/* Card grid pattern */
+.u-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+@media (max-width: 767px) {
+  .u-card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Feature grid pattern */
+.u-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* Pricing grid pattern */
+.u-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .u-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Sidebar layout */
+.u-sidebar-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--space-8);
+  min-height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .u-sidebar-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   MISSING GRID UTILITIES
+   ========================================================================== */
+
+.u-flex--align-center {
+  align-items: center;
+}
+
+.u-grid--gap-12 {
+  gap: var(--space-12);
+}
+
+.u-grid--gap-8 {
+  gap: var(--space-8);
+}

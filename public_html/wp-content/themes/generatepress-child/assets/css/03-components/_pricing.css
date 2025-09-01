@@ -1,0 +1,519 @@
+/**
+ * Pricing Components
+ * Pricing tables, cards, and plan comparison layouts
+ */
+
+/* ==========================================================================
+   PRICING CONTAINER
+   ========================================================================== */
+
+.pricing-section {
+  padding: var(--space-20) 0;
+  background: var(--color-gray-50);
+}
+
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+@media (max-width: 767px) {
+  .pricing-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* ==========================================================================
+   PRICING CARD BASE
+   ========================================================================== */
+
+.pricing-card {
+  background: var(--color-white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  border: 2px solid var(--color-gray-200);
+  position: relative;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-secondary);
+}
+
+.pricing-card:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   PRICING CARD VARIANTS
+   ========================================================================== */
+
+/* Featured/Popular pricing card */
+.pricing-card--featured {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+  z-index: 2;
+  background: linear-gradient(135deg, var(--color-white) 0%, #fefcf7 100%);
+}
+
+.pricing-card--featured::before {
+  content: "Most Popular";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Enterprise pricing card */
+.pricing-card--enterprise {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.pricing-card--enterprise:hover {
+  background: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+}
+
+/* ==========================================================================
+   PRICING CARD HEADER
+   ========================================================================== */
+
+.pricing-card__header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.pricing-card__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.pricing-card--enterprise .pricing-card__title {
+  color: var(--color-white);
+}
+
+.pricing-card__description {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+.pricing-card--enterprise .pricing-card__description {
+  color: var(--color-gray-200);
+}
+
+/* ==========================================================================
+   PRICING DISPLAY
+   ========================================================================== */
+
+.pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-1);
+  margin: var(--space-6) 0;
+}
+
+.pricing-card__currency {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-gray-700);
+}
+
+.pricing-card--enterprise .pricing-card__currency {
+  color: var(--color-gray-300);
+}
+
+.pricing-card__amount {
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.pricing-card--featured .pricing-card__amount {
+  color: var(--color-secondary);
+}
+
+.pricing-card--enterprise .pricing-card__amount {
+  color: var(--color-white);
+}
+
+.pricing-card__period {
+  font-size: var(--text-lg);
+  color: var(--color-gray-600);
+  font-weight: var(--weight-medium);
+}
+
+.pricing-card--enterprise .pricing-card__period {
+  color: var(--color-gray-300);
+}
+
+/* Free pricing display */
+.pricing-card__free {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-success);
+  text-align: center;
+  margin: var(--space-6) 0;
+}
+
+/* Custom pricing display */
+.pricing-card__custom {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-gray-700);
+  text-align: center;
+  margin: var(--space-6) 0;
+}
+
+.pricing-card--enterprise .pricing-card__custom {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   PRICING FEATURES
+   ========================================================================== */
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-8) 0;
+  flex-grow: 1;
+}
+
+.pricing-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-gray-100);
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+}
+
+.pricing-card--enterprise .pricing-card__feature {
+  color: var(--color-gray-200);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-card__feature:last-child {
+  border-bottom: none;
+}
+
+.pricing-card__feature-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-success);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  margin-top: 2px;
+}
+
+.pricing-card__feature-icon::before {
+  content: "✓";
+}
+
+/* Feature not included */
+.pricing-card__feature--not-included {
+  opacity: 0.5;
+}
+
+.pricing-card__feature--not-included .pricing-card__feature-icon {
+  background: var(--color-gray-400);
+}
+
+.pricing-card__feature--not-included .pricing-card__feature-icon::before {
+  content: "✗";
+}
+
+/* Feature highlight */
+.pricing-card__feature--highlight {
+  background: var(--color-gray-50);
+  margin: 0 calc(-1 * var(--space-4));
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+}
+
+.pricing-card--enterprise .pricing-card__feature--highlight {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   PRICING ACTIONS
+   ========================================================================== */
+
+.pricing-card__action {
+  margin-top: auto;
+  padding-top: var(--space-6);
+}
+
+.pricing-card__button {
+  width: 100%;
+  justify-content: center;
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Button variants for different card types */
+.pricing-card .pricing-card__button {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.pricing-card--featured .pricing-card__button {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
+}
+
+.pricing-card--enterprise .pricing-card__button {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+}
+
+.pricing-card__secondary-action {
+  margin-top: var(--space-4);
+  text-align: center;
+}
+
+.pricing-card__link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.pricing-card__link:hover {
+  text-decoration: underline;
+  color: var(--color-secondary);
+}
+
+.pricing-card--enterprise .pricing-card__link {
+  color: var(--color-gray-200);
+}
+
+.pricing-card--enterprise .pricing-card__link:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   PRICING TABLE ALTERNATIVE
+   ========================================================================== */
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-8) 0;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.pricing-table th {
+  background: var(--color-gray-50);
+  font-weight: var(--weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.pricing-table__plan-header {
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  font-weight: var(--weight-bold);
+}
+
+.pricing-table__feature-check {
+  text-align: center;
+  color: var(--color-success);
+  font-weight: var(--weight-bold);
+}
+
+.pricing-table__feature-cross {
+  text-align: center;
+  color: var(--color-gray-400);
+}
+
+/* ==========================================================================
+   BILLING TOGGLE
+   ========================================================================== */
+
+.billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.billing-toggle__label {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  color: var(--color-gray-700);
+}
+
+.billing-toggle__label--active {
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.billing-toggle__switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.billing-toggle__switch--active {
+  background: var(--color-secondary);
+}
+
+.billing-toggle__slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-white);
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-fast) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.billing-toggle__switch--active .billing-toggle__slider {
+  transform: translateX(30px);
+}
+
+.billing-toggle__discount {
+  background: var(--color-success);
+  color: var(--color-white);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  margin-left: var(--space-2);
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .pricing-section {
+    padding: var(--space-16) 0;
+  }
+  
+  .pricing-card--featured {
+    transform: none;
+    margin-top: var(--space-4);
+  }
+  
+  .pricing-card {
+    padding: var(--space-6);
+  }
+  
+  .pricing-card__amount {
+    font-size: var(--text-4xl);
+  }
+  
+  .billing-toggle {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  
+  .pricing-table {
+    font-size: var(--text-sm);
+  }
+  
+  .pricing-table th,
+  .pricing-table td {
+    padding: var(--space-3);
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .pricing-card {
+    border-width: 3px;
+  }
+  
+  .pricing-card__feature-icon {
+    border: 2px solid;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card {
+    transition: none;
+    transform: none;
+  }
+  
+  .pricing-card:hover {
+    transform: none;
+  }
+  
+  .pricing-card--featured {
+    transform: none;
+  }
+}
+
+/* Focus management */
+.pricing-card:focus-within {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
