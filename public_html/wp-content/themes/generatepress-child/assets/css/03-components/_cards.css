@@ -1,417 +1,612 @@
-/**
- * Card Components
- * Reusable card patterns and variations
- */
-
-/* ==========================================================================
-   BASE CARD
-   ========================================================================== */
-
-.u-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: var(--space-6);
-  transition: all var(--duration-normal) var(--ease-in-out);
-  border: 1px solid var(--color-gray-200);
-}
-
-.u-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-
-.u-card:focus {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-}
-
-/* ==========================================================================
-   CARD VARIATIONS
-   ========================================================================== */
-
-/* Elevated card */
-.u-card--elevated {
-  box-shadow: var(--shadow-lg);
-}
-
-.u-card--elevated:hover {
-  box-shadow: var(--shadow-xl);
-}
-
-/* Flat card */
-.u-card--flat {
-  box-shadow: none;
-  border: 2px solid var(--color-gray-200);
-}
-
-.u-card--flat:hover {
-  border-color: var(--color-secondary);
-}
-
-/* Outlined card */
-.u-card--outlined {
-  background: transparent;
-  border: 2px solid var(--color-primary);
-  box-shadow: none;
-}
-
-.u-card--outlined:hover {
-  background: var(--color-gray-50);
-  border-color: var(--color-secondary);
-}
-
-/* ==========================================================================
-   CARD SIZES
-   ========================================================================== */
-
-.u-card--sm {
-  padding: var(--space-4);
-}
-
-.u-card--lg {
-  padding: var(--space-8);
-}
-
-.u-card--xl {
-  padding: var(--space-12);
-}
-
-/* ==========================================================================
-   CARD COLORS
-   ========================================================================== */
-
-.u-card--primary {
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
-}
-
-.u-card--primary:hover {
-  background: var(--color-gray-800);
-}
-
-.u-card--secondary {
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  border-color: var(--color-secondary);
-}
-
-.u-card--gray {
-  background: var(--color-gray-50);
-  border-color: var(--color-gray-300);
-}
-
-/* ==========================================================================
-   CARD CONTENT
-   ========================================================================== */
-
-.u-card__header {
-  margin-bottom: var(--space-4);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--color-gray-200);
-}
-
-.u-card__title {
-  font-size: var(--text-xl);
-  font-weight: var(--weight-semibold);
-  color: var(--color-gray-900);
-  margin: 0 0 var(--space-2) 0;
-}
-
-.u-card--primary .u-card__title {
-  color: var(--color-white);
-}
-
-.u-card--secondary .u-card__title {
-  color: var(--color-primary);
-}
-
-.u-card__subtitle {
-  font-size: var(--text-sm);
-  color: var(--color-gray-600);
-  margin: 0;
-}
-
-.u-card--primary .u-card__subtitle {
-  color: var(--color-gray-200);
-}
-
-.u-card__body {
-  margin-bottom: var(--space-4);
-}
-
-.u-card__body p:last-child {
-  margin-bottom: 0;
-}
-
-.u-card__footer {
-  margin-top: var(--space-4);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-gray-200);
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-3);
-}
-
-.u-card--primary .u-card__footer {
-  border-top-color: rgba(255, 255, 255, 0.2);
-}
-
-/* ==========================================================================
-   CARD WITH ICON
-   ========================================================================== */
-
-.u-card--with-icon {
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-start;
-}
-
-.u-card__icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  border-radius: var(--radius-lg);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-bold);
-}
-
-.u-card--primary .u-card__icon {
-  background: var(--color-white);
-  color: var(--color-primary);
-}
-
-/* ==========================================================================
-   CLICKABLE CARDS
-   ========================================================================== */
-
-.u-card--clickable {
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.u-card--clickable:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-.u-card--clickable:focus {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ==========================================================================
-   FEATURE CARDS
-   ========================================================================== */
-
-.feature-card {
-  text-align: center;
-  padding: var(--space-8);
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-  transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.feature-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
-}
-
-.feature-card__icon {
-  width: 64px;
-  height: 64px;
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-2xl);
-  font-weight: var(--weight-bold);
-  margin: 0 auto var(--space-6) auto;
-}
-
-.feature-card__title {
-  font-size: var(--text-xl);
-  font-weight: var(--weight-semibold);
-  color: var(--color-gray-900);
-  margin: 0 0 var(--space-3) 0;
-}
-
-.feature-card__description {
-  color: var(--color-gray-600);
-  line-height: var(--leading-relaxed);
-  margin: 0;
-}
-
-/* ==========================================================================
-   TESTIMONIAL CARDS
-   ========================================================================== */
-
-.testimonial-card {
-  background: var(--color-white);
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-  position: relative;
-}
-
-.testimonial-card::before {
-  content: '"';
-  position: absolute;
-  top: var(--space-4);
-  left: var(--space-6);
-  font-size: var(--text-6xl);
-  color: var(--color-secondary);
-  line-height: 1;
-  font-family: serif;
-}
-
-.testimonial-card__quote {
-  font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--color-gray-700);
-  margin: var(--space-6) 0 var(--space-6) 0;
-  font-style: italic;
-}
-
-.testimonial-card__author {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.testimonial-card__avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  background: var(--color-gray-300);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: var(--weight-semibold);
-  color: var(--color-white);
-}
-
-.testimonial-card__name {
-  font-weight: var(--weight-semibold);
-  color: var(--color-gray-900);
-  margin: 0;
-}
-
-.testimonial-card__title {
-  font-size: var(--text-sm);
-  color: var(--color-gray-600);
-  margin: 0;
-}
-
-
-/* ==========================================================================
-   SERVICE CARDS
-   ========================================================================== */
-
-.service-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
-  transition: all var(--duration-normal) var(--ease-in-out);
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.service-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-secondary);
-}
-
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--color-secondary);
-  transform: translateX(-100%);
-  transition: transform var(--duration-normal) var(--ease-in-out);
-}
-
-.service-card:hover::before {
-  transform: translateX(0);
-}
-
-.service-card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin-bottom: var(--space-6);
-}
-
-.service-card__icon {
-  width: 60px;
-  height: 60px;
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-2xl);
-  flex-shrink: 0;
-}
-
-.service-card__title {
-  font-size: var(--text-xl);
-  font-weight: var(--weight-semibold);
-  color: var(--color-gray-900);
-  margin: 0;
-}
-
-.service-card__description {
-  color: var(--color-gray-600);
-  line-height: var(--leading-relaxed);
-  margin: 0 0 var(--space-6) 0;
-}
-
-.service-card__features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-6) 0;
-  flex-grow: 1;
-}
-
-.service-card__feature {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-3);
-  font-size: var(--text-sm);
-  color: var(--color-gray-700);
-}
-
-.service-card__feature::before {
-  content: "✓";
-  color: var(--color-success);
-  font-weight: var(--weight-bold);
-  flex-shrink: 0;
-}
-
-.service-card__action {
-  margin-top: auto;
-  padding-top: var(--space-6);
+/**
+ * Minimalist Card Components - Flat Design
+ * Clean, simple card patterns without shadows or decorative elements
+ * Following minimalist accessibility consulting design principles
+ */
+
+/* ==========================================================================
+   BASE CARD - FLAT DESIGN APPROACH
+   ========================================================================== */
+
+.u-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  border: var(--border-width) var(--border-style) var(--color-gray-200);
+  transition: border-color var(--duration-fast) var(--ease);
+}
+
+.u-card:hover {
+  border-color: var(--color-secondary);
+}
+
+.u-card:focus {
+  outline: var(--focus-width) var(--focus-style) var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* ==========================================================================
+   CARD VARIATIONS - MINIMALIST APPROACH
+   ========================================================================== */
+
+/* Primary card variation */
+.u-card--primary {
+  border: var(--border-width-2) var(--border-style) var(--color-primary);
+}
+
+.u-card--primary:hover {
+  border-color: var(--color-secondary);
+}
+
+/* Secondary card variation */
+.u-card--secondary {
+  background: var(--color-neutral-light);
+  border: var(--border-width) var(--border-style) var(--color-neutral-medium);
+}
+
+.u-card--secondary:hover {
+  border-color: var(--color-secondary);
+}
+
+/* Outlined card - Clean lines only */
+.u-card--outlined {
+  background: transparent;
+  border: var(--border-width-2) var(--border-style) var(--color-primary);
+}
+
+.u-card--outlined:hover {
+  background: var(--color-neutral-light);
+  border-color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   CARD SIZES - GENEROUS SPACING
+   ========================================================================== */
+
+.u-card--sm {
+  padding: var(--space-4);
+}
+
+.u-card--lg {
+  padding: var(--space-8);
+}
+
+.u-card--xl {
+  padding: var(--space-12);
+}
+
+/* ==========================================================================
+   CARD BACKGROUNDS - CLEAN AND FLAT
+   ========================================================================== */
+
+.u-card--brand {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.u-card--brand:hover {
+  border-color: var(--color-secondary);
+}
+
+.u-card--accent {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-color: var(--color-secondary);
+}
+
+.u-card--accent:hover {
+  border-color: var(--color-primary);
+}
+
+.u-card--light {
+  background: var(--color-neutral-light);
+  border-color: var(--color-neutral-medium);
+}
+
+.u-card--light:hover {
+  border-color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   CARD CONTENT - CLEAN STRUCTURE
+   ========================================================================== */
+
+.u-card__header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-width) var(--border-style) var(--color-gray-200);
+}
+
+.u-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--space-3) 0;
+  line-height: var(--leading-tight);
+}
+
+.u-card--brand .u-card__title {
+  color: var(--color-white);
+}
+
+.u-card--accent .u-card__title {
+  color: var(--color-white);
+}
+
+.u-card__subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+  line-height: var(--leading-normal);
+}
+
+.u-card--brand .u-card__subtitle,
+.u-card--accent .u-card__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.u-card__body {
+  margin-bottom: var(--space-6);
+}
+
+.u-card__body p:last-child {
+  margin-bottom: 0;
+}
+
+.u-card__footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) var(--border-style) var(--color-gray-200);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-4);
+}
+
+.u-card--brand .u-card__footer,
+.u-card--accent .u-card__footer {
+  border-top-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   CARD WITH ICON - CLEAN GEOMETRIC SHAPES
+   ========================================================================== */
+
+.u-card--with-icon {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.u-card__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+.u-card--brand .u-card__icon {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+.u-card--accent .u-card__icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   CLICKABLE CARDS - MINIMAL INTERACTIONS
+   ========================================================================== */
+
+.u-card--clickable {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--duration-fast) var(--ease);
+}
+
+.u-card--clickable:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.u-card--clickable:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   FEATURE CARDS - MINIMALIST DESIGN
+   ========================================================================== */
+
+.feature-card {
+  text-align: center;
+  padding: var(--space-8);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: var(--border-width) var(--border-style) var(--color-gray-200);
+  transition: border-color var(--duration-fast) var(--ease);
+}
+
+.feature-card:hover {
+  border-color: var(--color-secondary);
+}
+
+.feature-card__icon {
+  width: 64px;
+  height: 64px;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  margin: 0 auto var(--space-6) auto;
+}
+
+.feature-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.feature-card__description {
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* ==========================================================================
+   TESTIMONIAL CARDS - CLEAN AND SIMPLE
+   ========================================================================== */
+
+.testimonial-card {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: var(--border-width-2) var(--border-style) var(--color-gray-200);
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-6);
+  font-size: var(--text-5xl);
+  color: var(--color-secondary);
+  line-height: 1;
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+}
+
+.testimonial-card__quote {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-gray-700);
+  margin: var(--space-6) 0 var(--space-6) 0;
+  font-style: italic;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.testimonial-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-semibold);
+  color: var(--color-white);
+}
+
+.testimonial-card__name {
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.testimonial-card__title {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+/* ==========================================================================
+   SERVICE CARDS - MINIMALIST FLAT DESIGN
+   ========================================================================== */
+
+.service-card {
+  background: var(--color-white);
+  border: var(--border-width) var(--border-style) var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: border-color var(--duration-fast) var(--ease);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  border-color: var(--color-secondary);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--border-width-4);
+  background: var(--color-secondary);
+}
+
+.service-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.service-card__icon {
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  flex-shrink: 0;
+}
+
+.service-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+.service-card__description {
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 var(--space-6) 0;
+}
+
+.service-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6) 0;
+  flex-grow: 1;
+}
+
+.service-card__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-gray-700);
+}
+
+.service-card__feature::before {
+  content: "✓";
+  color: var(--color-success);
+  font-weight: var(--font-bold);
+  flex-shrink: 0;
+}
+
+.service-card__action {
+  margin-top: auto;
+  padding-top: var(--space-6);
+}
+
+/* ==========================================================================
+   SERVICE CARDS GRID LAYOUT SYSTEM - Professional & Responsive
+   ========================================================================== */
+
+.service-cards-container {
+  display: grid;
+  grid-template-columns: var(--grid-cols-3);
+  gap: var(--space-8);
+  margin: var(--space-16) 0;
+  align-items: stretch;
+}
+
+/* Service Cards Grid - Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .service-cards-container {
+    grid-template-columns: var(--grid-cols-2);
+    gap: var(--space-6);
+    margin: var(--space-12) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-cards-container {
+    grid-template-columns: var(--grid-cols-1);
+    gap: var(--space-6);
+    margin: var(--space-10) 0;
+  }
+  
+  .service-card {
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+  }
+  
+  .service-card__icon {
+    width: 48px;
+    height: 48px;
+    font-size: var(--text-xl);
+  }
+  
+  .service-card__title {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .service-cards-container {
+    gap: var(--space-4);
+    margin: var(--space-8) 0;
+  }
+  
+  .service-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+  }
+  
+  .service-card__header {
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+  
+  .service-card__icon {
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-lg);
+  }
+  
+  .service-card__description {
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+  }
+  
+  .service-card__features {
+    margin-bottom: var(--space-4);
+  }
+  
+  .service-card__feature {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-xs);
+  }
+  
+  .service-card__action {
+    padding-top: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   MINIMALIST SERVICE SHOWCASE SECTION
+   ========================================================================== */
+
+.service-showcase {
+  background: var(--color-neutral-light);
+  padding: var(--space-16) 0;
+}
+
+.service-showcase__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-showcase__title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+}
+
+.service-showcase__subtitle {
+  font-size: var(--text-xl);
+  color: var(--color-tertiary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-8);
+}
+
+.service-showcase__description {
+  font-size: var(--text-lg);
+  color: var(--color-gray-700);
+  line-height: var(--leading-relaxed);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Professional Service Cards - Minimalist Approach */
+.service-card--professional {
+  background: var(--color-white);
+  border: var(--border-width-2) var(--border-style) var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10);
+  transition: border-color var(--duration-fast) var(--ease);
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card--professional:hover {
+  border-color: var(--color-secondary);
+}
+
+.service-card--professional::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--border-width-4);
+  background: var(--color-primary);
+}
+
+/* Trust Indicators for Professional Credibility */
+.service-card__trust-indicators {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.trust-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-gray-600);
+  background: var(--color-neutral-light);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) var(--border-style) var(--color-neutral-medium);
+}
+
+.trust-indicator--wcag::before {
+  content: "WCAG";
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+}
+
+.trust-indicator--certified::before {
+  content: "CERT";
+  font-weight: var(--font-bold);
+  color: var(--color-success);
+}
+
+.trust-indicator--experience::before {
+  content: "EXP";
+  font-weight: var(--font-bold);
+  color: var(--color-secondary);
 }

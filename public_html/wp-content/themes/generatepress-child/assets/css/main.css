@@ -30,7 +30,8 @@
    ========================================================================== */
 @import url('03-components/_navigation.css');
 @import url('03-components/_buttons.css');
-@import url('03-components/_cards.css');
+@import url('03-components/_cards.css');
+@import url('03-components/_trust.css');
 @import url('03-components/_pricing.css');
 @import url('03-components/_faq.css');
 @import url('03-components/_icons.css');
@@ -40,7 +41,9 @@
    04. PAGES
    Page-specific styles
    ========================================================================== */
-@import url('04-pages/_home.css');
+@import url('04-pages/_home.css');
+@import url('04-pages/_risk-calculator.css');
+@import url('04-pages/_accessibility-auditing.css');
 
 /* ==========================================================================
    05. OVERRIDES

@@ -1,688 +1,689 @@
-/**
- * GeneratePress Theme Overrides
- * Custom styles to override GeneratePress defaults
- */
-
-/* ==========================================================================
-   GENERAL OVERRIDES
-   ========================================================================== */
-
-/* Override GP container width */
-.site-header .inside-header,
-.site-content .inside-article,
-.site-footer .inside-site-footer {
-  max-width: var(--container-xl);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--space-4);
-  padding-right: var(--space-4);
-}
-
-/* Body and general typography overrides */
-body {
-  font-family: var(--font-primary);
-  font-size: var(--text-base);
-  line-height: var(--leading-normal);
-  color: var(--color-gray-900);
-}
-
-/* Link overrides */
-a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  transition: all var(--duration-fast) var(--ease-out);
-}
-
-a:hover {
-  color: var(--color-secondary);
-  text-decoration-thickness: 2px;
-}
-
-a:focus {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-}
-
-/* ==========================================================================
-   HEADER OVERRIDES
-   ========================================================================== */
-
-.site-header {
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-gray-200);
-  padding: var(--space-4) 0;
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.inside-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Site logo/title overrides */
-.site-logo {
-  margin-right: var(--space-4);
-}
-
-.site-logo img {
-  height: 40px;
-  width: auto;
-  max-height: 40px;
-}
-
-.main-title a {
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: var(--weight-bold);
-  font-size: var(--text-xl);
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.main-title a:hover {
-  color: var(--color-secondary);
-}
-
-.site-description {
-  color: var(--color-gray-600);
-  font-size: var(--text-sm);
-  margin-top: var(--space-1);
-}
-
-/* ==========================================================================
-   NAVIGATION OVERRIDES
-   ========================================================================== */
-
-.main-navigation {
-  background: transparent;
-  box-shadow: none;
-}
-
-.main-navigation .main-nav {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.main-navigation ul {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.main-navigation li {
-  margin: 0;
-  position: relative;
-}
-
-.main-navigation a {
-  display: flex;
-  align-items: center;
-  padding: var(--space-3) var(--space-4);
-  color: var(--color-gray-700);
-  text-decoration: none;
-  font-weight: var(--weight-medium);
-  border-radius: var(--radius);
-  transition: all var(--duration-fast) var(--ease-out);
-  min-height: 44px; /* Touch target requirement */
-}
-
-.main-navigation a:hover,
-.main-navigation .current-menu-item > a {
-  color: var(--color-primary);
-  background: var(--color-gray-50);
-  text-decoration: none;
-}
-
-.main-navigation a:focus {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-  text-decoration: none;
-}
-
-/* Dropdown navigation overrides */
-.main-navigation .sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background: var(--color-white);
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  padding: var(--space-2);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all var(--duration-normal) var(--ease-out);
-  z-index: var(--z-dropdown);
-  flex-direction: column;
-}
-
-.main-navigation li:hover > .sub-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.main-navigation .sub-menu a {
-  width: 100%;
-  margin: 0;
-  border-radius: var(--radius);
-}
-
-/* Mobile menu toggle */
-.menu-toggle {
-  background: none;
-  border: none;
-  padding: var(--space-2);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius);
-  transition: background var(--duration-fast) var(--ease-out);
-}
-
-.menu-toggle:hover {
-  background: var(--color-gray-100);
-}
-
-.menu-toggle:focus {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--color-primary);
-  margin: 3px 0;
-  transition: all var(--duration-fast) var(--ease-out);
-  border-radius: 1px;
-}
-
-.menu-toggle.toggled span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.menu-toggle.toggled span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.toggled span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Mobile menu */
-@media (max-width: 1023px) {
-  .main-navigation .main-nav {
-    display: none;
-  }
-  
-  .main-navigation.toggled .main-nav {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;
-    background: var(--color-white);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: var(--space-8) var(--space-6);
-    box-shadow: var(--shadow-xl);
-    z-index: var(--z-modal);
-    overflow-y: auto;
-  }
-  
-  .main-navigation.toggled ul {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-  
-  .main-navigation.toggled li {
-    width: 100%;
-    border-bottom: 1px solid var(--color-gray-200);
-  }
-  
-  .main-navigation.toggled li:last-child {
-    border-bottom: none;
-  }
-  
-  .main-navigation.toggled a {
-    width: 100%;
-    padding: var(--space-4) var(--space-2);
-    font-size: var(--text-lg);
-    justify-content: flex-start;
-  }
-}
-
-/* ==========================================================================
-   CONTENT AREA OVERRIDES
-   ========================================================================== */
-
-.site-content {
-  padding: 0;
-}
-
-.content-area {
-  margin: 0;
-  padding: 0;
-}
-
-.hentry {
-  margin: 0;
-  padding: var(--space-8) 0;
-}
-
-.entry-content {
-  margin: 0;
-  line-height: var(--leading-relaxed);
-}
-
-.entry-content p {
-  margin-bottom: var(--space-4);
-}
-
-.entry-content h1,
-.entry-content h2,
-.entry-content h3,
-.entry-content h4,
-.entry-content h5,
-.entry-content h6 {
-  color: var(--color-gray-900);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-tight);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-4);
-}
-
-.entry-content h1:first-child,
-.entry-content h2:first-child,
-.entry-content h3:first-child {
-  margin-top: 0;
-}
-
-.entry-content ul,
-.entry-content ol {
-  margin-bottom: var(--space-6);
-  padding-left: var(--space-6);
-}
-
-.entry-content li {
-  margin-bottom: var(--space-2);
-}
-
-.entry-content blockquote {
-  border-left: 4px solid var(--color-secondary);
-  padding-left: var(--space-6);
-  margin: var(--space-8) 0;
-  font-size: var(--text-lg);
-  font-style: italic;
-  color: var(--color-gray-700);
-}
-
-/* ==========================================================================
-   SIDEBAR OVERRIDES
-   ========================================================================== */
-
-.sidebar {
-  background: var(--color-gray-50);
-  padding: var(--space-8);
-  border-radius: var(--radius-lg);
-}
-
-.sidebar .widget {
-  background: var(--color-white);
-  padding: var(--space-6);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--space-6);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-gray-200);
-}
-
-.sidebar .widget:last-child {
-  margin-bottom: 0;
-}
-
-.sidebar .widget-title {
-  font-size: var(--text-lg);
-  font-weight: var(--weight-semibold);
-  color: var(--color-gray-900);
-  margin-bottom: var(--space-4);
-  padding-bottom: var(--space-2);
-  border-bottom: 2px solid var(--color-secondary);
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  margin-bottom: var(--space-2);
-  padding-bottom: var(--space-2);
-  border-bottom: 1px solid var(--color-gray-200);
-}
-
-.sidebar li:last-child {
-  margin-bottom: 0;
-  border-bottom: none;
-}
-
-.sidebar a {
-  color: var(--color-gray-700);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.sidebar a:hover {
-  color: var(--color-primary);
-}
-
-/* ==========================================================================
-   FOOTER OVERRIDES
-   ========================================================================== */
-
-.site-footer {
-  background: var(--color-gray-900);
-  color: var(--color-gray-300);
-  padding: var(--space-16) 0 var(--space-8) 0;
-  margin-top: auto;
-}
-
-.site-footer a {
-  color: var(--color-gray-300);
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  color: var(--color-secondary);
-}
-
-.footer-widgets {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-8);
-  margin-bottom: var(--space-12);
-}
-
-.footer-widget {
-  margin-bottom: 0;
-}
-
-.footer-widget .widget-title {
-  color: var(--color-white);
-  font-size: var(--text-lg);
-  font-weight: var(--weight-semibold);
-  margin-bottom: var(--space-4);
-}
-
-.footer-widget ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-widget li {
-  margin-bottom: var(--space-2);
-}
-
-.site-info {
-  text-align: center;
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-gray-700);
-  color: var(--color-gray-400);
-  font-size: var(--text-sm);
-}
-
-/* ==========================================================================
-   BUTTON OVERRIDES
-   ========================================================================== */
-
-.wp-block-button .wp-block-button__link,
-.button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"] {
-  background: var(--color-primary);
-  color: var(--color-white);
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--text-base);
-  font-weight: var(--weight-medium);
-  font-family: inherit;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.wp-block-button .wp-block-button__link:hover,
-.button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover {
-  background: var(--color-gray-800);
-  border-color: var(--color-gray-800);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-  text-decoration: none;
-  color: var(--color-white);
-}
-
-.wp-block-button .wp-block-button__link:focus,
-.button:focus,
-input[type="submit"]:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-}
-
-/* ==========================================================================
-   FORM OVERRIDES
-   ========================================================================== */
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea,
-select {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border: 2px solid var(--color-gray-300);
-  border-radius: var(--radius);
-  font-size: var(--text-base);
-  font-family: inherit;
-  background: var(--color-white);
-  transition: border-color var(--duration-fast) var(--ease-out);
-  min-height: 44px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
-}
-
-textarea {
-  resize: vertical;
-  min-height: 120px;
-  line-height: var(--leading-normal);
-}
-
-/* ==========================================================================
-   BLOCK EDITOR OVERRIDES
-   ========================================================================== */
-
-.wp-block-group {
-  margin-bottom: var(--space-8);
-}
-
-.wp-block-columns {
-  gap: var(--space-8);
-}
-
-.wp-block-column {
-  margin-bottom: 0;
-}
-
-.wp-block-image {
-  margin-bottom: var(--space-6);
-}
-
-.wp-block-image img {
-  border-radius: var(--radius);
-}
-
-.wp-block-quote {
-  border-left: 4px solid var(--color-secondary);
-  padding-left: var(--space-6);
-  margin: var(--space-8) 0;
-  font-size: var(--text-lg);
-  font-style: italic;
-  color: var(--color-gray-700);
-}
-
-/* ==========================================================================
-   ACCESSIBILITY IMPROVEMENTS
-   ========================================================================== */
-
-/* Skip link */
-.screen-reader-text {
-  position: absolute !important;
-  top: -40px;
-  left: 6px;
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: var(--space-2) var(--space-4);
-  text-decoration: none;
-  border-radius: var(--radius);
-  font-weight: var(--weight-semibold);
-  z-index: var(--z-modal);
-  transition: top var(--duration-fast) var(--ease-out);
-}
-
-.screen-reader-text:focus {
-  top: 6px !important;
-}
-
-/* Focus improvements */
-.main-navigation a:focus-visible,
-.menu-toggle:focus-visible {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .main-navigation a,
-  .button,
-  input,
-  textarea,
-  select {
-    border-width: 3px;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .main-navigation .sub-menu,
-  .menu-toggle span,
-  .button,
-  input,
-  textarea,
-  select {
-    transition: none;
-  }
-  
-  .button:hover {
-    transform: none;
-  }
-}
-
-/* ==========================================================================
-   RESPONSIVE OVERRIDES
-   ========================================================================== */
-
-@media (max-width: 767px) {
-  .site-header {
-    padding: var(--space-3) 0;
-  }
-  
-  .main-title {
-    font-size: var(--text-lg);
-  }
-  
-  .site-logo img {
-    height: 32px;
-  }
-  
-  .hentry {
-    padding: var(--space-6) 0;
-  }
-  
-  .sidebar {
-    margin-top: var(--space-8);
-  }
-  
-  .footer-widgets {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-  
-  .site-footer {
-    padding: var(--space-12) 0 var(--space-6) 0;
-  }
+/**
+ * GeneratePress Theme Overrides - FLAT DESIGN VERSION
+ * Minimalist flat design - no shadows, gradients, or transforms
+ * Following accessibility-first principles
+ */
+
+/* ==========================================================================
+   GENERAL OVERRIDES
+   ========================================================================== */
+
+/* Override GP container width */
+.site-header .inside-header,
+.site-content .inside-article,
+.site-footer .inside-site-footer {
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* Body and general typography overrides */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-gray-900);
+}
+
+/* Link overrides */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--duration-fast) var(--ease);
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-decoration-thickness: 2px;
+}
+
+a:focus {
+  outline: var(--focus-width) var(--focus-style) var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* ==========================================================================
+   HEADER OVERRIDES - FLAT DESIGN
+   ========================================================================== */
+
+.site-header {
+  background: var(--color-white);
+  border-bottom: var(--border-width) var(--border-style) var(--color-gray-200);
+  padding: var(--space-4) 0;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  /* No backdrop-filter or transparency for flat design */
+}
+
+.inside-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Site logo/title overrides */
+.site-logo {
+  margin-right: var(--space-4);
+}
+
+.site-logo img {
+  height: 40px;
+  width: auto;
+  max-height: 40px;
+}
+
+.main-title a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-bold);
+  font-size: var(--text-xl);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.main-title a:hover {
+  color: var(--color-secondary);
+}
+
+.site-description {
+  color: var(--color-gray-600);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   NAVIGATION OVERRIDES - FLAT DESIGN
+   ========================================================================== */
+
+.main-navigation {
+  background: transparent;
+  /* No box-shadow for flat design */
+}
+
+.main-navigation .main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.main-navigation ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-navigation li {
+  margin: 0;
+  position: relative;
+}
+
+.main-navigation a {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-gray-700);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease);
+  min-height: var(--touch-target-min);
+  border: var(--border-width-2) var(--border-style) transparent;
+}
+
+.main-navigation a:hover,
+.main-navigation .current-menu-item > a {
+  color: var(--color-primary);
+  background: var(--color-neutral-light);
+  border-color: var(--color-gray-200);
+  text-decoration: none;
+}
+
+.main-navigation a:focus {
+  outline: var(--focus-width) var(--focus-style) var(--focus-color);
+  outline-offset: var(--focus-offset);
+  text-decoration: none;
+}
+
+/* Dropdown navigation - FLAT DESIGN */
+.main-navigation .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--color-white);
+  border: var(--border-width-2) var(--border-style) var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  /* No box-shadow for flat design */
+  padding: var(--space-2);
+  opacity: 0;
+  visibility: hidden;
+  /* No transform for flat design */
+  transition: opacity var(--duration-fast) var(--ease), visibility var(--duration-fast) var(--ease);
+  z-index: var(--z-dropdown);
+  flex-direction: column;
+}
+
+.main-navigation li:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  /* No transform for flat design */
+}
+
+.main-navigation .sub-menu a {
+  width: 100%;
+  margin: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  background: none;
+  border: var(--border-width-2) var(--border-style) transparent;
+  padding: var(--space-2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease);
+}
+
+.menu-toggle:hover {
+  background: var(--color-neutral-light);
+  border-color: var(--color-gray-200);
+}
+
+.menu-toggle:focus {
+  outline: var(--focus-width) var(--focus-style) var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary);
+  margin: 3px 0;
+  transition: all var(--duration-fast) var(--ease);
+  border-radius: 1px;
+}
+
+.menu-toggle.toggled span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.toggled span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.toggled span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile menu - FLAT DESIGN */
+@media (max-width: 1023px) {
+  .main-navigation .main-nav {
+    display: none;
+  }
+  
+  .main-navigation.toggled .main-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--color-white);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: var(--space-8) var(--space-6);
+    border-left: var(--border-width-2) var(--border-style) var(--color-gray-200);
+    /* No box-shadow for flat design */
+    z-index: var(--z-modal);
+    overflow-y: auto;
+  }
+  
+  .main-navigation.toggled ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  
+  .main-navigation.toggled li {
+    width: 100%;
+    border-bottom: var(--border-width) var(--border-style) var(--color-gray-200);
+  }
+  
+  .main-navigation.toggled li:last-child {
+    border-bottom: none;
+  }
+  
+  .main-navigation.toggled a {
+    width: 100%;
+    padding: var(--space-4) var(--space-2);
+    font-size: var(--text-lg);
+    justify-content: flex-start;
+  }
+}
+
+/* ==========================================================================
+   CONTENT AREA OVERRIDES
+   ========================================================================== */
+
+.site-content {
+  padding: 0;
+}
+
+.content-area {
+  margin: 0;
+  padding: 0;
+}
+
+.hentry {
+  margin: 0;
+  padding: var(--space-8) 0;
+}
+
+.entry-content {
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+.entry-content p {
+  margin-bottom: var(--space-4);
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  color: var(--color-gray-900);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.entry-content h1:first-child,
+.entry-content h2:first-child,
+.entry-content h3:first-child {
+  margin-top: 0;
+}
+
+.entry-content ul,
+.entry-content ol {
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-6);
+}
+
+.entry-content li {
+  margin-bottom: var(--space-2);
+}
+
+.entry-content blockquote {
+  border-left: var(--border-width-4) var(--border-style) var(--color-secondary);
+  padding-left: var(--space-6);
+  margin: var(--space-8) 0;
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-gray-700);
+}
+
+/* ==========================================================================
+   SIDEBAR OVERRIDES - FLAT DESIGN
+   ========================================================================== */
+
+.sidebar {
+  background: var(--color-neutral-light);
+  padding: var(--space-8);
+  border-radius: var(--radius-sm);
+}
+
+.sidebar .widget {
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-6);
+  /* No box-shadow for flat design */
+  border: var(--border-width-2) var(--border-style) var(--color-gray-200);
+}
+
+.sidebar .widget:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar .widget-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-width-2) var(--border-style) var(--color-secondary);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-width) var(--border-style) var(--color-gray-200);
+}
+
+.sidebar li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.sidebar a {
+  color: var(--color-gray-700);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.sidebar a:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   FOOTER OVERRIDES
+   ========================================================================== */
+
+.site-footer {
+  background: var(--color-gray-900);
+  color: var(--color-gray-300);
+  padding: var(--space-16) 0 var(--space-8) 0;
+  margin-top: auto;
+  border-top: var(--border-width-4) var(--border-style) var(--color-secondary);
+}
+
+.site-footer a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--color-secondary);
+}
+
+.footer-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.footer-widget {
+  margin-bottom: 0;
+}
+
+.footer-widget .widget-title {
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-4);
+}
+
+.footer-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-widget li {
+  margin-bottom: var(--space-2);
+}
+
+.site-info {
+  text-align: center;
+  padding-top: var(--space-8);
+  border-top: var(--border-width) var(--border-style) var(--color-gray-700);
+  color: var(--color-gray-400);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   BUTTON OVERRIDES - FLAT DESIGN
+   ========================================================================== */
+
+.wp-block-button .wp-block-button__link,
+.button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: var(--border-width-2) var(--border-style) var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  font-family: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target-min);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease);
+  /* No box-shadow or transform for flat design */
+}
+
+.wp-block-button .wp-block-button__link:hover,
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  /* No transform or box-shadow for flat design */
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.wp-block-button .wp-block-button__link:focus,
+.button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus {
+  outline: var(--focus-width) var(--focus-style) var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* ==========================================================================
+   FORM OVERRIDES - FLAT DESIGN
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width-2) var(--border-style) var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  font-family: inherit;
+  background: var(--color-white);
+  transition: border-color var(--duration-fast) var(--ease);
+  min-height: var(--touch-target-min);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  /* No box-shadow for flat design */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: var(--leading-normal);
+}
+
+/* ==========================================================================
+   BLOCK EDITOR OVERRIDES
+   ========================================================================== */
+
+.wp-block-group {
+  margin-bottom: var(--space-8);
+}
+
+.wp-block-columns {
+  gap: var(--space-8);
+}
+
+.wp-block-column {
+  margin-bottom: 0;
+}
+
+.wp-block-image {
+  margin-bottom: var(--space-6);
+}
+
+.wp-block-image img {
+  border-radius: var(--radius-sm);
+}
+
+.wp-block-quote {
+  border-left: var(--border-width-4) var(--border-style) var(--color-secondary);
+  padding-left: var(--space-6);
+  margin: var(--space-8) 0;
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-gray-700);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================================================== */
+
+/* Skip link */
+.screen-reader-text {
+  position: absolute !important;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-semibold);
+  z-index: var(--z-modal);
+  transition: top var(--duration-fast) var(--ease);
+}
+
+.screen-reader-text:focus {
+  top: 6px !important;
+}
+
+/* Focus improvements */
+.main-navigation a:focus-visible,
+.menu-toggle:focus-visible {
+  outline: var(--focus-width) var(--focus-style) var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .main-navigation a,
+  .button,
+  input,
+  textarea,
+  select {
+    border-width: var(--border-width-4);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .main-navigation .sub-menu,
+  .menu-toggle span,
+  .button,
+  input,
+  textarea,
+  select {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .site-header {
+    padding: var(--space-3) 0;
+  }
+  
+  .main-title {
+    font-size: var(--text-lg);
+  }
+  
+  .site-logo img {
+    height: 32px;
+  }
+  
+  .hentry {
+    padding: var(--space-6) 0;
+  }
+  
+  .sidebar {
+    margin-top: var(--space-8);
+  }
+  
+  .footer-widgets {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .site-footer {
+    padding: var(--space-12) 0 var(--space-6) 0;
+  }
 }

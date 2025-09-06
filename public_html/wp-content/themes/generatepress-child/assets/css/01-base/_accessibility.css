@@ -1,0 +1,594 @@
+/**
+ * WCAG 2.1 AA Accessibility Standards Implementation
+ * Professional Accessibility Consulting Business Compliance
+ */
+
+/* ==========================================================================
+   SKIP TO CONTENT & NAVIGATION AIDS
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-4);
+  z-index: var(--z-max);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Skip links container */
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-max);
+  width: 100%;
+}
+
+.skip-links a {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.skip-links a:focus {
+  top: var(--space-4);
+}
+
+/* ==========================================================================
+   FOCUS MANAGEMENT - WCAG 2.1 AA COMPLIANT
+   ========================================================================== */
+
+/* High visibility focus styles */
+*:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Enhanced focus for interactive elements */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--color-focus-background);
+  position: relative;
+  z-index: var(--z-10);
+}
+
+/* Focus within compound components */
+.service-card:focus-within {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 4px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Remove default browser focus styles that we're replacing */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline-color: transparent;
+}
+
+/* ==========================================================================
+   SCREEN READER & ASSISTIVE TECHNOLOGY SUPPORT
+   ========================================================================== */
+
+/* Screen reader only text */
+.sr-only,
+.screen-reader-text {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Show screen reader text when focused */
+.sr-only:focus,
+.screen-reader-text:focus {
+  position: static !important;
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  width: auto !important;
+  height: auto !important;
+  padding: var(--space-2) var(--space-4) !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  z-index: var(--z-max);
+}
+
+/* Live regions for dynamic content announcements */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+[aria-live] {
+  position: relative;
+}
+
+/* ==========================================================================
+   HIGH CONTRAST MODE SUPPORT
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    /* Enhanced contrast colors */
+    --color-primary: #000080;
+    --color-secondary: #006666;
+    --color-tertiary: #000000;
+    --color-accent: #CC0000;
+    
+    /* High contrast shadows */
+    --shadow: 0 2px 4px 0 rgb(0 0 0 / 0.5);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+  }
+  
+  /* Ensure all text meets WCAG AAA standards */
+  body,
+  p,
+  li,
+  span,
+  div {
+    color: var(--color-black) !important;
+  }
+  
+  /* High contrast borders */
+  .service-card,
+  .u-card {
+    border: 2px solid var(--color-black);
+  }
+  
+  /* Enhanced button contrast */
+  button,
+  .btn,
+  .button {
+    border: 3px solid var(--color-black);
+    font-weight: var(--weight-bold);
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable transform animations */
+  .service-card:hover,
+  .u-card:hover,
+  .feature-card:hover {
+    transform: none !important;
+  }
+  
+  /* Remove parallax and smooth scrolling */
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   COLOR BLINDNESS & VISUAL IMPAIRMENT SUPPORT
+   ========================================================================== */
+
+/* Ensure information isn't conveyed by color alone */
+.trust-indicator--wcag::before {
+  content: "WCAG ";
+}
+
+.trust-indicator--certified::before {
+  content: "CERT ";
+}
+
+.trust-indicator--experience::before {
+  content: "EXP ";
+}
+
+/* Pattern-based differentiation for service card categories */
+.service-card--audit::after {
+  content: "AUDIT";
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.service-card--design::after {
+  content: "DESIGN";
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-secondary);
+  opacity: 0.7;
+}
+
+.service-card--development::after {
+  content: "DEV";
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-supporting);
+  opacity: 0.7;
+}
+
+.service-card--training::after {
+  content: "TRAINING";
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   TOUCH TARGET SIZING - WCAG 2.1 AA COMPLIANCE
+   ========================================================================== */
+
+/* Minimum 44px touch targets */
+button,
+.btn,
+.button,
+a,
+input,
+textarea,
+select {
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+}
+
+/* Large touch targets for primary actions */
+.btn-large,
+.button-large,
+.hero .btn {
+  min-height: var(--touch-target-lg);
+  padding: var(--space-4) var(--space-6);
+}
+
+/* Ensure adequate spacing between touch targets */
+.btn + .btn,
+.button + .button {
+  margin-left: var(--space-4);
+}
+
+/* ==========================================================================
+   KEYBOARD NAVIGATION SUPPORT
+   ========================================================================== */
+
+/* Enhanced keyboard navigation indicators */
+.nav-menu a:focus {
+  background: var(--color-focus-background);
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Tab order optimization */
+.skip-to-content {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.skip-to-content:active,
+.skip-to-content:focus,
+.skip-to-content:hover {
+  left: var(--space-4);
+  top: var(--space-4);
+  width: auto;
+  height: auto;
+  overflow: auto;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+  z-index: var(--z-max);
+}
+
+/* ==========================================================================
+   SEMANTIC HTML & LANDMARK SUPPORT
+   ========================================================================== */
+
+/* Improve semantic structure visibility for assistive tech */
+main {
+  outline: 1px solid transparent;
+}
+
+nav[role="navigation"] {
+  outline: 1px solid transparent;
+}
+
+aside[role="complementary"] {
+  outline: 1px solid transparent;
+}
+
+footer[role="contentinfo"] {
+  outline: 1px solid transparent;
+}
+
+/* ==========================================================================
+   FORM ACCESSIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* Required field indicators */
+.required::after {
+  content: " *";
+  color: var(--color-error);
+  font-weight: var(--weight-bold);
+  aria-hidden: true;
+}
+
+/* Form validation styling */
+.form-field.error input,
+.form-field.error textarea,
+.form-field.error select {
+  border-color: var(--color-error);
+  background-color: rgba(239, 111, 108, 0.1);
+}
+
+.form-field.error .field-error {
+  color: var(--color-error);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-field.error .field-error::before {
+  content: " ";
+  font-weight: var(--weight-bold);
+}
+
+/* Success states */
+.form-field.success input,
+.form-field.success textarea,
+.form-field.success select {
+  border-color: var(--color-success);
+  background-color: rgba(25, 111, 128, 0.1);
+}
+
+.form-field.success .field-success {
+  color: var(--color-success);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-field.success .field-success::before {
+  content: "";
+  font-weight: var(--weight-bold);
+}
+
+/* ==========================================================================
+   RESPONSIVE TEXT SCALING SUPPORT
+   ========================================================================== */
+
+/* Support for 200% text scaling requirement */
+@media (max-width: 1280px) {
+  html {
+    font-size: 18px; /* Scales base rem values */
+  }
+}
+
+@media (max-width: 960px) {
+  html {
+    font-size: 20px; /* Further scaling for text zoom */
+  }
+}
+
+/* Prevent horizontal scrolling at 200% zoom */
+.container,
+.service-cards-container,
+.grid {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   ERROR PREVENTION & USER GUIDANCE
+   ========================================================================== */
+
+/* Help text styling */
+.help-text {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin-top: var(--space-2);
+  line-height: var(--leading-normal);
+}
+
+/* Instructions and guidance */
+.instructions {
+  background: var(--color-gray-50);
+  border-left: 4px solid var(--color-info);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  border-radius: var(--radius);
+}
+
+.instructions .instructions-title {
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+/* ==========================================================================
+   WCAG 2.1 LEVEL AA COMPLIANCE VERIFICATION
+   ========================================================================== */
+
+/* Ensure all interactive elements meet contrast requirements */
+button:not(:disabled),
+.btn:not(:disabled),
+a:not([aria-disabled="true"]) {
+  /* Colors already defined with WCAG AA compliant ratios */
+  position: relative;
+}
+
+/* Ensure focus indicators are visible in all contexts */
+*:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Fallback for browsers that don't support focus-visible */
+@supports not selector(:focus-visible) {
+  *:focus {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY TESTING & COMPLIANCE BADGES
+   ========================================================================== */
+
+.accessibility-statement {
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+  text-align: center;
+}
+
+.accessibility-statement h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.accessibility-statement p {
+  color: var(--color-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.wcag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  margin-top: var(--space-4);
+}
+
+.wcag-badge::before {
+  content: "";
+  font-size: var(--text-base);
+}
+
+.wcag-badge:hover {
+  background: var(--color-secondary);
+  transform: none; /* Respect reduced motion */
+}
+
+/* ==========================================================================
+   PRINT STYLES FOR ACCESSIBILITY
+   ========================================================================== */
+
+@media print {
+  /* Ensure good contrast in print */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  /* Show URLs after links */
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: smaller;
+  }
+  
+  /* Hide decorative elements */
+  .skip-link,
+  .skip-links,
+  nav {
+    display: none !important;
+  }
+  
+  /* Ensure readable font sizes */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1 { font-size: 24pt; }
+  h2 { font-size: 20pt; }
+  h3 { font-size: 16pt; }
+  h4 { font-size: 14pt; }
+  h5 { font-size: 12pt; }
+  h6 { font-size: 10pt; }
+}

@@ -1,7 +1,28 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\public_html\\wp-content\\themes\\generatepress-child/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\public_html\\wp-content\\themes\\generatepress-child\\assets\\css/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\public_html\\wp-content\\themes\\generatepress-child\\assets\\css\\01-base/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\public_html\\wp-content\\themes\\generatepress-child\\assets\\css/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\ReadySetComply\\accessibility-platform\\src/**)",
+      "Read(/C:\\Users\\rtmak\\Documents\\job-tracker-platform\\scripts/**)",
+      "Bash(.start-server.bat)",
+      "Bash(powershell:*)",
+      "Bash(npm start)"
     ],
     "deny": [],
     "ask": []
