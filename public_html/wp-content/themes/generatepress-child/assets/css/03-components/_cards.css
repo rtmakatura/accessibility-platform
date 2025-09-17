@@ -16,9 +16,8 @@
   transition: border-color var(--duration-fast) var(--ease);
 }
 
-.u-card:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive cards for better UX */
+/* Only clickable cards should have hover effects */
 
 .u-card:focus {
   outline: var(--focus-width) var(--focus-style) var(--focus-color);
@@ -34,9 +33,7 @@
   border: var(--border-width-2) var(--border-style) var(--color-primary);
 }
 
-.u-card--primary:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive primary cards */
 
 /* Secondary card variation */
 .u-card--secondary {
@@ -44,9 +41,7 @@
   border: var(--border-width) var(--border-style) var(--color-neutral-medium);
 }
 
-.u-card--secondary:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive secondary cards */
 
 /* Outlined card - Clean lines only */
 .u-card--outlined {
@@ -54,10 +49,7 @@
   border: var(--border-width-2) var(--border-style) var(--color-primary);
 }
 
-.u-card--outlined:hover {
-  background: var(--color-neutral-light);
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive outlined cards */
 
 /* ==========================================================================
    CARD SIZES - GENEROUS SPACING
@@ -85,9 +77,7 @@
   border-color: var(--color-primary);
 }
 
-.u-card--brand:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive brand cards */
 
 .u-card--accent {
   background: var(--color-secondary);
@@ -95,18 +85,14 @@
   border-color: var(--color-secondary);
 }
 
-.u-card--accent:hover {
-  border-color: var(--color-primary);
-}
+/* Hover removed from non-interactive accent cards */
 
 .u-card--light {
   background: var(--color-neutral-light);
   border-color: var(--color-neutral-medium);
 }
 
-.u-card--light:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive light cards */
 
 /* ==========================================================================
    CARD CONTENT - CLEAN STRUCTURE
@@ -213,9 +199,19 @@
   transition: border-color var(--duration-fast) var(--ease);
 }
 
+/* Only clickable cards get hover effects to indicate interactivity */
 .u-card--clickable:hover {
   text-decoration: none;
   color: inherit;
+  border-color: var(--color-secondary);
+}
+
+/* Ensure clickable variants also show hover state */
+a.u-card:hover,
+button.u-card:hover,
+.u-card[role="button"]:hover,
+.u-card[onclick]:hover {
+  border-color: var(--color-secondary);
 }
 
 .u-card--clickable:focus {
@@ -236,9 +232,7 @@
   transition: border-color var(--duration-fast) var(--ease);
 }
 
-.feature-card:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive feature cards */
 
 .feature-card__icon {
   width: 64px;
@@ -345,9 +339,7 @@
   flex-direction: column;
 }
 
-.service-card:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive service cards */
 
 .service-card::before {
   content: "";
@@ -559,9 +551,7 @@
   flex-direction: column;
 }
 
-.service-card--professional:hover {
-  border-color: var(--color-secondary);
-}
+/* Hover removed from non-interactive professional service cards */
 
 .service-card--professional::before {
   content: "";

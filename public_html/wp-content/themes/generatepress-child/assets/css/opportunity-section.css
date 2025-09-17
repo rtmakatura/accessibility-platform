@@ -49,16 +49,14 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-    transition: all 0.3s ease;
     position: relative;
     cursor: default;
     overflow: visible;
+    z-index: 1;
 }
 
-.stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-}
+/* Hover effect removed from stat cards - they are not interactive */
+/* Only tooltip triggers are interactive */
 
 .stat-number {
     font-size: 3rem;
@@ -100,8 +98,17 @@
     font-weight: 600;
     margin-left: 0.5rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
     vertical-align: middle;
+    position: relative;
+    z-index: 10;
+}
+
+/* Active state when clicked */
+.tooltip-trigger[aria-expanded="true"] {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
 }
 
 .tooltip-trigger:hover,
@@ -116,9 +123,9 @@
 /* Tooltip Container */
 .tooltip {
     position: absolute;
-    bottom: calc(100% + 12px);
+    bottom: calc(100% + 8px);
     left: 50%;
-    transform: translateX(-50%) scale(0.95);
+    transform: translateX(-50%);
     background: #1f2937;
     color: white;
     padding: 1rem;
@@ -128,16 +135,18 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
     z-index: 1000;
     pointer-events: none;
+    will-change: opacity, visibility;
 }
 
 .tooltip.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) scale(1);
+    transform: translateX(-50%);
     pointer-events: auto;
+    transition-delay: 0s;
 }
 
 /* Tooltip Arrow */
@@ -218,10 +227,20 @@
     .opportunity-stats {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .stat-card {
         text-align: center;
+        padding: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
     }
 
     .tooltip {
@@ -229,14 +248,17 @@
         bottom: auto;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -60%) scale(0.95);
+        transform: translate(-50%, -50%);
         width: 90%;
         max-width: 400px;
         z-index: 10001;
+        opacity: 0;
+        visibility: hidden;
     }
 
     .tooltip.active {
-        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        visibility: visible;
         animation: slideIn 0.3s ease;
     }
 
@@ -248,11 +270,37 @@
 
 @media (max-width: 480px) {
     .opportunity-title {
-        font-size: 2rem;
+        font-size: 1.875rem;
+        padding: 0 1rem;
     }
-    
+
+    .opportunity-subtitle {
+        font-size: 1.125rem;
+        padding: 0 1rem;
+    }
+
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+    }
+
+    .tooltip {
+        width: 95%;
+        max-width: none;
+        padding: 1.25rem 1rem;
+    }
+
+    .tooltip-close {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -292,6 +340,18 @@
 .tooltip-trigger:focus-visible {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .tooltip-trigger {
+        border-width: 2px;
+    }
+
+    .tooltip {
+        border: 2px solid currentColor;
+    }
 }
 
 /* Prevent tooltip flickering */
@@ -301,10 +361,28 @@
     align-items: center;
 }
 
-/* Ensure smooth hover transitions */
-.tooltip-trigger {
-    position: relative;
-    z-index: 1;
+/* Create invisible bridge for smooth hover transition */
+.tooltip-trigger::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: transparent;
+    z-index: -1;
+}
+
+/* Tooltip interaction improvements */
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 12px;
+    background: transparent;
 }
 
 /* Dark Overlay for Mobile */
@@ -324,6 +402,31 @@
 .tooltip-overlay.active {
     opacity: 1;
     visibility: visible;
+}
+
+/* Touch target improvements for accessibility */
+@media (pointer: coarse) {
+    .tooltip-trigger {
+        width: 24px;
+        height: 24px;
+        font-size: 0.875rem;
+    }
+
+    .tooltip-close {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .tooltip-trigger {
+        display: none;
+    }
+
+    .tooltip {
+        display: none !important;
+    }
 }
 
 /* Additional Enhancements */

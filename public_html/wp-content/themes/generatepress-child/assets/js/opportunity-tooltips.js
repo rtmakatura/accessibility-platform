@@ -10,6 +10,7 @@
         constructor() {
             this.activeTooltip = null;
             this.tooltips = new Map();
+            this.openMethod = null; // Track how tooltip was opened: 'click' or 'hover'
             this.init();
         }
 
@@ -41,24 +42,29 @@
 
         initializeTooltips() {
             const triggers = document.querySelectorAll('.tooltip-trigger');
-            
+
             triggers.forEach((trigger, index) => {
                 // Generate unique ID
                 const tooltipId = `tooltip-${index}`;
                 const tooltip = trigger.nextElementSibling;
-                
+
                 if (tooltip && tooltip.classList.contains('tooltip')) {
-                    // Set ARIA attributes
+                    // Get the stat label for better context
+                    const statLabel = trigger.closest('.stat-label')?.textContent.replace('?', '').trim();
+                    const ariaLabel = statLabel ? `Show more information about ${statLabel}` : 'Show additional information';
+
+                    // Set comprehensive ARIA attributes
                     trigger.setAttribute('aria-describedby', tooltipId);
                     trigger.setAttribute('aria-expanded', 'false');
                     trigger.setAttribute('role', 'button');
                     trigger.setAttribute('tabindex', '0');
-                    trigger.setAttribute('aria-haspopup', 'true');
-                    trigger.setAttribute('aria-label', trigger.getAttribute('aria-label') || 'Show additional information');
-                    
+                    trigger.setAttribute('aria-haspopup', 'dialog');
+                    trigger.setAttribute('aria-label', ariaLabel);
+
                     tooltip.setAttribute('id', tooltipId);
                     tooltip.setAttribute('role', 'tooltip');
                     tooltip.setAttribute('aria-hidden', 'true');
+                    tooltip.setAttribute('aria-live', 'polite');
                     
                     // Store reference
                     this.tooltips.set(trigger, tooltip);
@@ -97,56 +103,104 @@
             this.tooltips.forEach((tooltip, trigger) => {
                 trigger.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    this.toggleTooltip(trigger);
+                    this.toggleTooltip(trigger, 'click');
                 });
 
-                // Enhanced hover events for desktop with debouncing
+                // Enhanced hover events for desktop with improved anti-flicker logic
                 if (!this.isTouchDevice()) {
                     let hoverTimeout;
-                    let isHovering = false;
+                    let closeTimeout;
+                    let isTooltipHovered = false;
+                    let isTriggerHovered = false;
 
-                    trigger.addEventListener('mouseenter', () => {
-                        isHovering = true;
+                    trigger.addEventListener('mouseenter', (e) => {
+                        // Don't trigger hover if opened by click
+                        if (this.activeTooltip === trigger && this.openMethod === 'click') {
+                            return;
+                        }
+
+                        isTriggerHovered = true;
+                        clearTimeout(closeTimeout);
                         clearTimeout(hoverTimeout);
-                        hoverTimeout = setTimeout(() => {
-                            if (isHovering && !this.activeTooltip) {
-                                this.openTooltip(trigger);
-                            }
-                        }, 300); // Delay to prevent flickering
+
+                        // Only open if not already open
+                        if (this.activeTooltip !== trigger) {
+                            hoverTimeout = setTimeout(() => {
+                                if (isTriggerHovered && this.openMethod !== 'click') {
+                                    this.openTooltip(trigger, 'hover');
+                                }
+                            }, 200); // Reduced delay for better responsiveness
+                        }
                     });
 
-                    trigger.addEventListener('mouseleave', () => {
-                        isHovering = false;
+                    trigger.addEventListener('mouseleave', (e) => {
+                        // Don't close if opened by click
+                        if (this.activeTooltip === trigger && this.openMethod === 'click') {
+                            return;
+                        }
+
+                        isTriggerHovered = false;
                         clearTimeout(hoverTimeout);
-                        hoverTimeout = setTimeout(() => {
-                            if (!isHovering && this.activeTooltip === trigger) {
-                                const tooltip = this.tooltips.get(trigger);
-                                if (tooltip && !tooltip.matches(':hover')) {
+
+                        // Only close if tooltip is also not hovered and was opened by hover
+                        if (this.activeTooltip === trigger && this.openMethod === 'hover') {
+                            closeTimeout = setTimeout(() => {
+                                if (!isTriggerHovered && !isTooltipHovered) {
                                     this.closeTooltip(trigger);
                                 }
-                            }
-                        }, 200);
+                            }, 100); // Small delay to allow moving to tooltip
+                        }
                     });
 
-                    // Keep tooltip open when hovering over it
-                    tooltip.addEventListener('mouseenter', () => {
+                    // Tooltip hover handling
+                    tooltip.addEventListener('mouseenter', (e) => {
+                        // Don't interfere with click-opened tooltips
+                        if (this.openMethod === 'click') {
+                            return;
+                        }
+
+                        isTooltipHovered = true;
+                        clearTimeout(closeTimeout);
                         clearTimeout(hoverTimeout);
                     });
 
-                    tooltip.addEventListener('mouseleave', () => {
-                        hoverTimeout = setTimeout(() => {
-                            if (this.activeTooltip === trigger && !trigger.matches(':hover')) {
-                                this.closeTooltip(trigger);
-                            }
-                        }, 200);
+                    tooltip.addEventListener('mouseleave', (e) => {
+                        // Don't close if opened by click
+                        if (this.openMethod === 'click') {
+                            return;
+                        }
+
+                        isTooltipHovered = false;
+
+                        // Check if we're moving back to trigger
+                        const relatedTarget = e.relatedTarget;
+                        if (relatedTarget && relatedTarget === trigger) {
+                            isTriggerHovered = true;
+                            return;
+                        }
+
+                        // Close if not hovering either element and was opened by hover
+                        if (this.openMethod === 'hover') {
+                            closeTimeout = setTimeout(() => {
+                                if (!isTriggerHovered && !isTooltipHovered && this.activeTooltip === trigger) {
+                                    this.closeTooltip(trigger);
+                                }
+                            }, 100);
+                        }
                     });
+
+                    // Store timeouts for cleanup
+                    trigger._hoverTimeout = hoverTimeout;
+                    trigger._closeTimeout = closeTimeout;
                 }
             });
 
-            // Close tooltips when clicking outside
+            // Close tooltips when clicking outside (only for click-opened tooltips)
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.tooltip') && !e.target.classList.contains('tooltip-trigger')) {
-                    this.closeAllTooltips();
+                    if (this.openMethod === 'click') {
+                        this.closeAllTooltips();
+                    }
                 }
             });
 
@@ -171,6 +225,8 @@
                 if (this.activeTooltip) {
                     this.closeTooltip(this.activeTooltip);
                     this.activeTooltip.focus();
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
                 return;
             }
@@ -178,7 +234,27 @@
             // Enter or Space on trigger toggles tooltip
             if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('tooltip-trigger')) {
                 e.preventDefault();
+                e.stopPropagation();
                 this.toggleTooltip(e.target);
+            }
+
+            // Arrow key navigation between tooltips
+            if (e.target.classList.contains('tooltip-trigger')) {
+                const allTriggers = Array.from(document.querySelectorAll('.tooltip-trigger'));
+                const currentIndex = allTriggers.indexOf(e.target);
+                let nextIndex = -1;
+
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    nextIndex = (currentIndex + 1) % allTriggers.length;
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    nextIndex = (currentIndex - 1 + allTriggers.length) % allTriggers.length;
+                }
+
+                if (nextIndex !== -1) {
+                    e.preventDefault();
+                    this.closeAllTooltips();
+                    allTriggers[nextIndex].focus();
+                }
             }
 
             // Tab navigation support
@@ -195,45 +271,60 @@
             }
         }
 
-        toggleTooltip(trigger) {
+        toggleTooltip(trigger, method = 'click') {
             const tooltip = this.tooltips.get(trigger);
             if (!tooltip) return;
-            
+
             const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-            
+
             if (isOpen) {
                 this.closeTooltip(trigger);
             } else {
-                this.openTooltip(trigger);
+                this.openTooltip(trigger, method);
             }
         }
 
-        openTooltip(trigger) {
+        openTooltip(trigger, method = 'hover') {
             const tooltip = this.tooltips.get(trigger);
             if (!tooltip) return;
 
-            // Close any other open tooltips only on mobile or when clicking
-            if (this.isMobile()) {
-                this.closeAllTooltips();
+            // Prevent reopening if already open
+            if (this.activeTooltip === trigger) {
+                // Update method if switching from hover to click
+                if (method === 'click' && this.openMethod === 'hover') {
+                    this.openMethod = 'click';
+                }
+                return;
             }
+
+            // Close any other open tooltips
+            if (this.activeTooltip && this.activeTooltip !== trigger) {
+                this.closeTooltip(this.activeTooltip);
+            }
+
+            // Track how it was opened
+            this.openMethod = method;
 
             // Open this tooltip
             trigger.setAttribute('aria-expanded', 'true');
             tooltip.setAttribute('aria-hidden', 'false');
 
+            // Position tooltip first to prevent layout jumps
+            this.positionTooltip(trigger, tooltip);
+
             // Use requestAnimationFrame for smooth animation
             requestAnimationFrame(() => {
                 tooltip.classList.add('active');
+                tooltip.style.pointerEvents = 'auto';
 
-                // Show overlay on mobile
-                if (this.isMobile()) {
+                // Show overlay on mobile or when clicked
+                if (this.isMobile() || method === 'click') {
                     this.overlay.classList.add('active');
                     this.overlay.setAttribute('aria-hidden', 'false');
-                    document.body.style.overflow = 'hidden';
+                    if (this.isMobile()) {
+                        document.body.style.overflow = 'hidden';
+                    }
                 }
-
-                // Position tooltip
-                this.positionTooltip(trigger, tooltip);
             });
 
             // Set active tooltip
@@ -246,19 +337,29 @@
         closeTooltip(trigger) {
             const tooltip = this.tooltips.get(trigger);
             if (!tooltip) return;
-            
+
+            // Clear any pending timeouts
+            if (trigger._hoverTimeout) {
+                clearTimeout(trigger._hoverTimeout);
+            }
+            if (trigger._closeTimeout) {
+                clearTimeout(trigger._closeTimeout);
+            }
+
             trigger.setAttribute('aria-expanded', 'false');
             tooltip.setAttribute('aria-hidden', 'true');
             tooltip.classList.remove('active');
-            
+            tooltip.style.pointerEvents = 'none';
+
             // Hide overlay
             this.overlay.classList.remove('active');
             this.overlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
-            
-            // Clear active tooltip
+
+            // Clear active tooltip and method
             if (this.activeTooltip === trigger) {
                 this.activeTooltip = null;
+                this.openMethod = null;
             }
         }
 
@@ -342,8 +443,9 @@
                 liveRegion = document.createElement('div');
                 liveRegion.id = 'tooltip-live-region';
                 liveRegion.setAttribute('role', 'status');
-                liveRegion.setAttribute('aria-live', 'polite');
+                liveRegion.setAttribute('aria-live', 'assertive');
                 liveRegion.setAttribute('aria-atomic', 'true');
+                liveRegion.className = 'sr-only';
                 liveRegion.style.position = 'absolute';
                 liveRegion.style.left = '-10000px';
                 liveRegion.style.width = '1px';
@@ -351,18 +453,21 @@
                 liveRegion.style.overflow = 'hidden';
                 document.body.appendChild(liveRegion);
             }
-            
+
             // Announce tooltip content
             const content = tooltip.querySelector('.tooltip-content');
             if (content) {
                 // Clean up text for screen reader announcement
-                const textContent = content.textContent.replace(/\s+/g, ' ').trim();
-                liveRegion.textContent = `Additional information: ${textContent}`;
+                const title = tooltip.querySelector('.tooltip-title')?.textContent || '';
+                const listItems = Array.from(tooltip.querySelectorAll('.tooltip-list li')).map(li => li.textContent).join(', ');
+                const announcement = title ? `${title}. ${listItems}` : listItems;
+
+                liveRegion.textContent = announcement;
 
                 // Clear announcement after a delay
                 setTimeout(() => {
                     liveRegion.textContent = '';
-                }, 5000);
+                }, 100);
             }
         }
 

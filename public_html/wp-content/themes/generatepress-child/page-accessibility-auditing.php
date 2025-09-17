@@ -209,7 +209,7 @@ Template Name: Accessibility Auditing Services
             </article>
             
             <!-- Service 4: User Testing with AT -->
-            <article class="service-card service-card-premium" aria-labelledby="service-4-title">
+            <article class="service-card" aria-labelledby="service-4-title">
                 <div class="service-card-header">
                     <span class="service-badge service-badge-premium">Premium</span>
                     <h3 id="service-4-title" class="service-title">User Testing with AT</h3>

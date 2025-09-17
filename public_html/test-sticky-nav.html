@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sticky Navigation</title>
+    
+    <!-- Load the CSS files -->
+    <link rel="stylesheet" href="/wp-content/themes/generatepress-child/assets/css/main.css">
+    <link rel="stylesheet" href="/wp-content/themes/generatepress-child/assets/css/accessible-menubar.css">
+    <link rel="stylesheet" href="/wp-content/themes/generatepress-child/assets/css/smart-sticky-nav.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .content {
+            height: 3000px;
+            padding: 20px;
+            background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+        }
+        .content h1 {
+            margin-top: 100px;
+        }
+        .debug-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="accessible-menubar" aria-label="Primary">
+    <div class="accessible-menubar__container">
+        <!-- Logo -->
+        <div class="accessible-menubar__logo">
+            <a href="/">Ready Set Comply</a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="accessible-menubar__menu" role="menubar">
+            <li role="none">
+                <a href="/" class="accessible-menubar__link" role="menuitem">Home</a>
+            </li>
+            <li role="none">
+                <button class="accessible-menubar__link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                    Services
+                </button>
+                <ul class="accessible-menubar__submenu" role="menu">
+                    <li role="none">
+                        <a href="#" class="accessible-menubar__submenu-link" role="menuitem">Service 1</a>
+                    </li>
+                    <li role="none">
+                        <a href="#" class="accessible-menubar__submenu-link" role="menuitem">Service 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li role="none">
+                <a href="#" class="accessible-menubar__link" role="menuitem">About</a>
+            </li>
+            <li role="none">
+                <a href="#" class="accessible-menubar__link" role="menuitem">Contact</a>
+            </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <div class="accessible-menubar__cta">
+            <a href="#" class="accessible-menubar__cta-button">Request Consultation</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Content to test scrolling -->
+<div class="content">
+    <h1>Test Smart Sticky Navigation</h1>
+    <p>Scroll down to see the navigation hide. Scroll up to see it reappear.</p>
+    <br><br>
+    <h2>Instructions:</h2>
+    <ul>
+        <li>Scroll down slowly - nav should hide after 100px</li>
+        <li>Scroll up - nav should immediately reappear</li>
+        <li>After 50px scroll - nav should be in compact mode</li>
+        <li>Check the debug panel for status</li>
+    </ul>
+    
+    <br><br><br><br><br><br><br><br><br><br>
+    <h2>Keep scrolling...</h2>
+    <br><br><br><br><br><br><br><br><br><br>
+    <h2>Navigation should be hidden now</h2>
+    <br><br><br><br><br><br><br><br><br><br>
+    <h2>Scroll up to see it return!</h2>
+</div>
+
+<!-- Debug Info Panel -->
+<div class="debug-info" id="debug">
+    <strong>Navigation Debug:</strong><br>
+    Scroll Y: <span id="scrollY">0</span>px<br>
+    Nav State: <span id="navState">Loading...</span><br>
+    Compact: <span id="compactState">No</span><br>
+    Hidden: <span id="hiddenState">No</span>
+</div>
+
+<!-- Load JavaScript files -->
+<script src="/wp-content/themes/generatepress-child/assets/js/accessible-menubar.js"></script>
+<script src="/wp-content/themes/generatepress-child/assets/js/smart-sticky-nav.js"></script>
+
+<!-- Debug Script -->
+<script>
+    // Update debug info
+    function updateDebug() {
+        document.getElementById('scrollY').textContent = Math.round(window.scrollY);
+        
+        const nav = document.querySelector('.accessible-menubar');
+        if (nav) {
+            document.getElementById('navState').textContent = nav.classList.contains('smart-sticky') ? 'Smart Sticky Active' : 'Not Initialized';
+            document.getElementById('compactState').textContent = nav.classList.contains('nav-compact') ? 'Yes' : 'No';
+            document.getElementById('hiddenState').textContent = nav.classList.contains('nav-hidden') ? 'Yes' : 'No';
+        }
+        
+        // Check if smart sticky nav is initialized
+        if (window.smartStickyNav) {
+            console.log('Smart Sticky Nav is initialized!');
+        }
+    }
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateDebug);
+    
+    // Initial update
+    window.addEventListener('load', () => {
+        updateDebug();
+        console.log('Page loaded. Checking for Smart Sticky Nav...');
+        console.log('window.smartStickyNav:', window.smartStickyNav);
+    });
+</script>
+
+</body>
+</html>

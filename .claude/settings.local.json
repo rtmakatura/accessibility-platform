@@ -49,7 +49,10 @@
       "Bash(cmd:*)",
       "Bash(set PORT=3002)",
       "Bash(git pull:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(npm run:*)",
+      "Bash(PORT=3001 npm start)",
+      "Bash(PORT=3003 npm start)"
     ],
     "deny": [],
     "ask": []

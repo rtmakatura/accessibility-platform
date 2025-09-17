@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Test Page</title>
+    <link rel="stylesheet" href="wp-content/themes/generatepress-child/assets/css/opportunity-section.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px;
+            background: #f7f9fc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .test-info h2 {
+            margin-top: 0;
+            color: #1a1a1a;
+        }
+        .test-info ul {
+            color: #525252;
+        }
+        .test-info code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.875em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="test-info">
+            <h2>Tooltip Testing Page</h2>
+            <p>Test the improved tooltip behavior with these features:</p>
+            <ul>
+                <li><strong>Mouse Interaction:</strong> Hover over the "?" buttons to see tooltips (200ms delay to prevent flickering)</li>
+                <li><strong>Keyboard Navigation:</strong>
+                    <ul>
+                        <li>Press <code>Tab</code> to navigate between triggers</li>
+                        <li>Press <code>Enter</code> or <code>Space</code> to toggle tooltips</li>
+                        <li>Use <code>Arrow keys</code> to navigate between tooltip triggers</li>
+                        <li>Press <code>Escape</code> to close active tooltip</li>
+                    </ul>
+                </li>
+                <li><strong>Screen Reader Support:</strong> ARIA labels and live regions announce tooltip content</li>
+                <li><strong>Mobile/Touch:</strong> Tap to open tooltips with overlay backdrop</li>
+                <li><strong>Responsive:</strong> Tooltips adapt to viewport size</li>
+            </ul>
+        </div>
+
+        <div class="opportunity-section">
+            <div class="opportunity-header">
+                <h2 class="opportunity-title">The Opportunity</h2>
+                <p class="opportunity-subtitle">Understanding the digital accessibility landscape and its impact on businesses</p>
+            </div>
+
+            <div class="opportunity-stats">
+                <div class="stat-card">
+                    <span class="stat-number" data-counter="61M">61M</span>
+                    <span class="stat-label">
+                        Americans with Disabilities
+                        <button class="tooltip-trigger" aria-label="Show more information about Americans with Disabilities">?</button>
+                        <div class="tooltip" role="tooltip">
+                            <button class="tooltip-close" aria-label="Close tooltip">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <div class="tooltip-content">
+                                <div class="tooltip-title">CDC Statistics (2023)</div>
+                                <ul class="tooltip-list">
+                                    <li>1 in 4 adults have a disability</li>
+                                    <li>12.7% have mobility disabilities</li>
+                                    <li>12.8% have cognitive disabilities</li>
+                                    <li>6.8% have hearing difficulties</li>
+                                    <li>4.6% have vision disabilities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="stat-context">Potential customers requiring accessible experiences</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-counter="$13T">$13T</span>
+                    <span class="stat-label">
+                        Global Spending Power
+                        <button class="tooltip-trigger" aria-label="Show more information about Global Spending Power">?</button>
+                        <div class="tooltip" role="tooltip">
+                            <button class="tooltip-close" aria-label="Close tooltip">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <div class="tooltip-content">
+                                <div class="tooltip-title">Economic Impact</div>
+                                <ul class="tooltip-list">
+                                    <li>$490B in the US alone</li>
+                                    <li>Friends & family multiply reach 3x</li>
+                                    <li>73% more likely to be loyal customers</li>
+                                    <li>Growing 14% annually</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="stat-context">Disability community economic influence</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-counter="4,500+">4,500+</span>
+                    <span class="stat-label">
+                        Lawsuits in 2023
+                        <button class="tooltip-trigger" aria-label="Show more information about Lawsuits in 2023">?</button>
+                        <div class="tooltip" role="tooltip">
+                            <button class="tooltip-close" aria-label="Close tooltip">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <div class="tooltip-content">
+                                <div class="tooltip-title">Legal Landscape</div>
+                                <ul class="tooltip-list">
+                                    <li>43% increase from 2022</li>
+                                    <li>Average settlement: $30,000</li>
+                                    <li>74% target small businesses</li>
+                                    <li>Most are preventable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="stat-context">Digital accessibility legal actions filed</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-counter="88%">88%</span>
+                    <span class="stat-label">
+                        Conversion Increase
+                        <button class="tooltip-trigger" aria-label="Show more information about Conversion Increase">?</button>
+                        <div class="tooltip" role="tooltip">
+                            <button class="tooltip-close" aria-label="Close tooltip">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <div class="tooltip-content">
+                                <div class="tooltip-title">Business Benefits</div>
+                                <ul class="tooltip-list">
+                                    <li>23% better SEO rankings</li>
+                                    <li>35% lower bounce rates</li>
+                                    <li>42% faster load times</li>
+                                    <li>2x higher customer satisfaction</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="stat-context">Average improvement after accessibility fixes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip-overlay" aria-hidden="true"></div>
+
+    <script src="wp-content/themes/generatepress-child/assets/js/opportunity-tooltips.js"></script>
+</body>
+</html>
