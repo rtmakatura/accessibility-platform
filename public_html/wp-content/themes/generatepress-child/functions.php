@@ -78,6 +78,78 @@ function enqueue_page_scripts() {
             true
         );
     }
+    
+    // Resources page styles
+    if (is_page_template('page-resources.php') || is_page_template('page-resource-generic.php') || is_page_template('page-wcag-guide.php')) {
+        wp_enqueue_style(
+            'resources-css',
+            get_stylesheet_directory_uri() . '/assets/css/resources.css',
+            array('custom-accessibility-css'),
+            '1.0.0'
+        );
+    }
+    
+    // Lawsuit Trends page styles
+    if (is_page_template('page-lawsuit-trends.php')) {
+        wp_enqueue_style(
+            'lawsuit-trends-css',
+            get_stylesheet_directory_uri() . '/assets/css/lawsuit-trends.css',
+            array('custom-accessibility-css'),
+            '1.0.0'
+        );
+    }
+    
+    // Opportunity section tooltips for home page
+    if (is_page_template('page-templates/page-custom-home.php')) {
+        // Enqueue opportunity section CSS
+        wp_enqueue_style(
+            'opportunity-section-css',
+            get_stylesheet_directory_uri() . '/assets/css/opportunity-section.css',
+            array(),
+            '1.0.0'
+        );
+        
+        // Enqueue opportunity tooltips JavaScript
+        wp_enqueue_script(
+            'opportunity-tooltips-js',
+            get_stylesheet_directory_uri() . '/assets/js/opportunity-tooltips.js',
+            array(),
+            '1.0.0',
+            true
+        );
+        
+        // Enqueue accessible menubar for the home page
+        wp_enqueue_style(
+            'accessible-menubar-css',
+            get_stylesheet_directory_uri() . '/assets/css/accessible-menubar.css',
+            array('custom-accessibility-css'),
+            '1.0.0'
+        );
+        
+        wp_enqueue_script(
+            'accessible-menubar-js',
+            get_stylesheet_directory_uri() . '/assets/js/accessible-menubar.js',
+            array(),
+            '1.0.0',
+            true
+        );
+        
+        // Enqueue smart sticky navigation
+        wp_enqueue_style(
+            'smart-sticky-nav-css',
+            get_stylesheet_directory_uri() . '/assets/css/smart-sticky-nav.css',
+            array('accessible-menubar-css'),
+            '1.0.0'
+        );
+        
+        wp_enqueue_script(
+            'smart-sticky-nav-js',
+            get_stylesheet_directory_uri() . '/assets/js/smart-sticky-nav.js',
+            array('accessible-menubar-js'),
+            '1.0.0',
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'enqueue_page_scripts');
 
@@ -400,6 +472,71 @@ function accessibility_customizer($wp_customize) {
     ));
 }
 add_action('customize_register', 'accessibility_customizer');
+
+// Enqueue Smart Sticky Navigation Assets Globally
+function enqueue_smart_sticky_nav_assets() {
+    // Load on all pages for consistent navigation experience
+    wp_enqueue_style(
+        'accessible-menubar-css',
+        get_stylesheet_directory_uri() . '/assets/css/accessible-menubar.css',
+        array('custom-accessibility-css'),
+        '1.0.1'
+    );
+    
+    wp_enqueue_script(
+        'accessible-menubar-js',
+        get_stylesheet_directory_uri() . '/assets/js/accessible-menubar.js',
+        array(),
+        '1.0.1',
+        true
+    );
+    
+    // Smart sticky navigation enhancement
+    wp_enqueue_style(
+        'smart-sticky-nav-css',
+        get_stylesheet_directory_uri() . '/assets/css/smart-sticky-nav.css',
+        array('accessible-menubar-css'),
+        '1.0.1'
+    );
+    
+    wp_enqueue_script(
+        'smart-sticky-nav-js',
+        get_stylesheet_directory_uri() . '/assets/js/smart-sticky-nav.js',
+        array('accessible-menubar-js'),
+        '1.0.1',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_smart_sticky_nav_assets');
+
+// Enqueue Back to Top Button Assets
+function enqueue_back_to_top_assets() {
+    // Enqueue the CSS
+    wp_enqueue_style(
+        'back-to-top-css',
+        get_stylesheet_directory_uri() . '/assets/css/back-to-top.css',
+        array('custom-accessibility-css'), // Load after main CSS
+        '1.0.0'
+    );
+    
+    // Enqueue the JavaScript
+    wp_enqueue_script(
+        'back-to-top-js',
+        get_stylesheet_directory_uri() . '/assets/js/back-to-top.js',
+        array(), // No dependencies - pure vanilla JS
+        '1.0.0',
+        true // Load in footer for better performance
+    );
+    
+    // Add async attribute for better performance
+    add_filter('script_loader_tag', function($tag, $handle) {
+        if ($handle === 'back-to-top-js') {
+            return str_replace('<script', '<script async', $tag);
+        }
+        return $tag;
+    }, 10, 2);
+}
+add_action('wp_enqueue_scripts', 'enqueue_back_to_top_assets');
 
 // Add inline JavaScript for accessibility enhancements
 function accessibility_inline_scripts() {

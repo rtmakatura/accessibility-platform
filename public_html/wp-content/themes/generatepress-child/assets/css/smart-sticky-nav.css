@@ -1,0 +1,253 @@
+/**
+ * Smart Sticky Navigation Styles
+ * Animations and transitions for hide/show and compact mode
+ */
+
+/* ==========================================================================
+   SMART STICKY SETUP
+   ========================================================================== */
+/* Initial state - keeps original sticky behavior */
+.accessible-menubar {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+/* When smart sticky is activated */
+.smart-sticky {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease,
+              backdrop-filter 0.3s ease;
+  will-change: transform;
+}
+
+/* Spacer to prevent content jump */
+.nav-spacer {
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   VISIBILITY STATES
+   ========================================================================== */
+.nav-hidden {
+  pointer-events: none;
+  box-shadow: none !important;
+}
+
+.nav-visible {
+  pointer-events: auto;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hint animation when hidden */
+.nav-hint {
+  animation: navHint 0.3s ease-out;
+}
+
+@keyframes navHint {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-85%);
+  }
+}
+
+/* ==========================================================================
+   COMPACT MODE
+   ========================================================================== */
+.nav-compact {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Dark mode support for compact */
+@media (prefers-color-scheme: dark) {
+  .nav-compact {
+    background: rgba(26, 32, 44, 0.95) !important;
+  }
+}
+
+/* Adjust container height in compact mode */
+.nav-compact .accessible-menubar__container {
+  min-height: 60px;
+  transition: min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo scaling in compact mode */
+.nav-compact .accessible-menubar__logo img {
+  height: 35px;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Menu items in compact mode */
+.nav-compact .accessible-menubar__link {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CTA button in compact mode */
+.nav-compact .accessible-menubar__cta-button {
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Submenu adjustments in compact mode */
+.nav-compact .accessible-menubar__submenu {
+  top: calc(100% + 4px);
+}
+
+/* ==========================================================================
+   SCROLL INDICATORS
+   ========================================================================== */
+
+/* Progress bar (optional) */
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--menubar-accent);
+  transition: width 0.1s linear;
+  z-index: 1;
+}
+
+/* Shadow enhancement based on scroll */
+.smart-sticky.nav-visible {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.smart-sticky.nav-compact.nav-visible {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   MOBILE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-compact .accessible-menubar__container {
+    min-height: 55px;
+  }
+  
+  .nav-compact .accessible-menubar__logo img {
+    height: 32px;
+  }
+  
+  .nav-compact .accessible-menubar__toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Disable smart sticky on mobile - use regular sticky */
+  .smart-sticky {
+    position: sticky !important;
+    transform: none !important;
+  }
+  
+  .nav-spacer {
+    display: none;
+  }
+  
+  .nav-compact .accessible-menubar__container {
+    min-height: 50px;
+  }
+  
+  .nav-compact .accessible-menubar__logo img {
+    height: 28px;
+  }
+}
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Use GPU acceleration */
+.smart-sticky {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce repaints during scroll */
+.smart-sticky * {
+  will-change: auto;
+}
+
+/* Only animate what's necessary */
+.smart-sticky.nav-transitioning * {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* Ensure focus remains visible even when nav is compact */
+.nav-compact *:focus-visible {
+  outline-offset: 2px;
+  outline-width: 3px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .smart-sticky,
+  .nav-spacer,
+  .nav-compact .accessible-menubar__container,
+  .nav-compact .accessible-menubar__logo img,
+  .nav-compact .accessible-menubar__link,
+  .nav-compact .accessible-menubar__cta-button {
+    transition-duration: 0.01ms !important;
+  }
+  
+  .nav-hint {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .nav-compact {
+    backdrop-filter: none;
+    background: #ffffff !important;
+    border-bottom: 3px solid #000000;
+  }
+  
+  .smart-sticky.nav-visible {
+    box-shadow: none;
+    border-bottom: 2px solid #000000;
+  }
+}
+
+/* ==========================================================================
+   INTEGRATION WITH EXISTING MENUBAR
+   ========================================================================== */
+
+/* Ensure smooth integration with accessible-menubar styles */
+.smart-sticky.accessible-menubar {
+  position: fixed !important;
+  top: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure dropdowns work properly with fixed positioning */
+.smart-sticky .accessible-menubar__submenu {
+  position: absolute;
+  margin-top: 0;
+}
+
+/* Initial state - ensure nav is visible */
+.accessible-menubar {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}

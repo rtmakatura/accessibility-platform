@@ -1,0 +1,491 @@
+/* Lawsuit Trends & Risk Analysis Page Styles */
+
+/* Stats Highlight Section */
+.stats-highlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0056b3;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.95rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Key Risk Drivers Section - Enhanced Visual Design */
+.key-risk-drivers {
+    margin: 4rem 0;
+    padding: 3rem 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, transparent 100%);
+}
+
+.key-risk-drivers .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.key-risk-drivers .section-icon {
+    color: #dc3545;
+    flex-shrink: 0;
+}
+
+.key-risk-drivers .section-intro {
+    font-size: 1.1rem;
+    color: #495057;
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+/* Risk Drivers Grid */
+.risk-drivers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Risk Driver Cards */
+.risk-driver-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.risk-driver-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: currentColor;
+}
+
+.risk-driver-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Risk Level Styling */
+.risk-driver-card.critical-risk {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.risk-driver-card.critical-risk::before {
+    background: linear-gradient(90deg, #dc3545 0%, #c82333 100%);
+}
+
+.risk-driver-card.high-risk {
+    border-color: #fd7e14;
+    color: #fd7e14;
+}
+
+.risk-driver-card.high-risk::before {
+    background: linear-gradient(90deg, #fd7e14 0%, #e56a00 100%);
+}
+
+.risk-driver-card.medium-risk {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.risk-driver-card.medium-risk::before {
+    background: linear-gradient(90deg, #ffc107 0%, #e0a800 100%);
+}
+
+.risk-driver-card.low-risk {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.risk-driver-card.low-risk::before {
+    background: linear-gradient(90deg, #28a745 0%, #218838 100%);
+}
+
+/* Risk Header */
+.risk-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.risk-level {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: currentColor;
+    color: white;
+}
+
+.critical-risk .risk-level {
+    background: #dc3545;
+}
+
+.high-risk .risk-level {
+    background: #fd7e14;
+}
+
+.medium-risk .risk-level {
+    background: #ffc107;
+    color: #1a1a1a;
+}
+
+.low-risk .risk-level {
+    background: #28a745;
+}
+
+/* Risk Indicator Animation */
+.risk-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: currentColor;
+    position: relative;
+}
+
+.critical-risk .risk-indicator,
+.high-risk .risk-indicator {
+    animation: pulse-danger 2s infinite;
+}
+
+@keyframes pulse-danger {
+    0%, 100% {
+        box-shadow: 0 0 0 0 currentColor;
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 0 8px transparent;
+        opacity: 0.7;
+    }
+}
+
+/* Risk Content */
+.risk-title {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.risk-description {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Risk Stats */
+.risk-stats {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.risk-metric {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: inherit;
+}
+
+.metric-label {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* Risk Factors List */
+.risk-factors {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.risk-factors li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+.risk-factors li::before {
+    content: '⚠';
+    position: absolute;
+    left: 0;
+    color: currentColor;
+}
+
+.risk-factors.positive li::before {
+    content: '✓';
+    color: #28a745;
+}
+
+/* Risk Assessment CTA */
+.risk-assessment-cta {
+    background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.risk-assessment-cta h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.risk-assessment-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.risk-assessment-cta .btn {
+    background: white;
+    color: #0056b3;
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+}
+
+.risk-assessment-cta .btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* Industry Trends Section */
+.industry-trends {
+    margin: 4rem 0;
+}
+
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.industry-card {
+    background: white;
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.industry-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.industry-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+}
+
+.trend-indicator {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.trend-indicator.up {
+    background: #fce4e4;
+    color: #dc3545;
+}
+
+.trend-indicator.down {
+    background: #e4f5e4;
+    color: #28a745;
+}
+
+.trend-indicator.stable {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Legal Precedents Timeline */
+.legal-precedents {
+    margin: 4rem 0;
+}
+
+.precedent-timeline {
+    position: relative;
+    padding-left: 3rem;
+    margin-top: 2rem;
+}
+
+.precedent-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #0056b3 0%, #004494 100%);
+}
+
+.precedent-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.precedent-year {
+    position: absolute;
+    left: -3rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: #0056b3;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.precedent-content {
+    background: white;
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-left: 1rem;
+}
+
+.precedent-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #0056b3;
+}
+
+/* Protection Strategies */
+.protection-strategies {
+    margin: 4rem 0;
+}
+
+.strategy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.strategy-card {
+    background: white;
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.strategy-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.strategy-number {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    background: #0056b3;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.strategy-card h3 {
+    font-size: 1.1rem;
+    margin: 0.75rem 0;
+    color: #1a1a1a;
+}
+
+.strategy-card p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .risk-drivers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-highlight {
+        grid-template-columns: 1fr;
+    }
+    
+    .industry-grid,
+    .strategy-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .precedent-timeline {
+        padding-left: 2rem;
+    }
+    
+    .precedent-year {
+        left: -2rem;
+    }
+    
+    .risk-assessment-cta {
+        padding: 2rem 1.5rem;
+    }
+}

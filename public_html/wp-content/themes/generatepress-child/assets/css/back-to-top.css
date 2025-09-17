@@ -1,0 +1,314 @@
+/**
+ * Accessible Back to Top Button Styles
+ * WCAG 2.1 AA Compliant Implementation
+ * 
+ * Features:
+ * - High contrast ratios (4.5:1 minimum)
+ * - 44x44px minimum touch target
+ * - Clear focus indicators
+ * - Reduced motion support
+ * - Screen reader optimizations
+ * - GeneratePress theme integration
+ */
+
+/* Screen reader only text - accessible but visually hidden */
+.sr-only,
+.back-to-top__sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Main back to top button */
+.back-to-top {
+    /* Positioning */
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    
+    /* Size and touch targets - WCAG minimum 44x44px */
+    min-width: 3.5rem; /* 56px - exceeds 44px minimum */
+    min-height: 3.5rem; /* 56px - exceeds 44px minimum */
+    padding: 0.75rem;
+    
+    /* Visual design */
+    background-color: #006BA1; /* High contrast blue from your brand */
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /* Typography - inherit from GeneratePress theme */
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    
+    /* Accessibility */
+    outline: none; /* Custom focus styles below */
+    
+    /* Animation and transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100px) scale(0.8);
+    opacity: 0;
+    visibility: hidden;
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+/* Visible state */
+.back-to-top--visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Icon styles */
+.back-to-top__icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+/* Text styles */
+.back-to-top__text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Hover states - WCAG AA contrast requirements */
+.back-to-top:hover {
+    background-color: #005a8a; /* Darker blue, maintains 4.5:1 contrast */
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.back-to-top:hover .back-to-top__icon {
+    transform: translateY(-1px);
+}
+
+/* Active/pressed state */
+.back-to-top:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition-duration: 0.1s;
+}
+
+/* Focus styles - WCAG 2.1 focus indicator requirements */
+.back-to-top:focus {
+    /* High contrast focus ring */
+    border-color: #ffffff;
+    box-shadow: 
+        0 0 0 3px #006BA1,
+        0 0 0 5px #ffffff,
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /* Slight scale for additional visibility */
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Focus visible for keyboard navigation */
+.back-to-top:focus-visible {
+    border-color: #ffffff;
+    box-shadow: 
+        0 0 0 3px #006BA1,
+        0 0 0 5px #ffffff,
+        0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove focus styles for mouse users */
+.back-to-top:focus:not(:focus-visible) {
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(0) scale(1);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .back-to-top {
+        /* Larger touch target on mobile */
+        min-width: 4rem; /* 64px */
+        min-height: 4rem; /* 64px */
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 1rem;
+        
+        /* Slightly larger text on mobile */
+        font-size: 0.8125rem;
+    }
+    
+    .back-to-top__text {
+        font-size: 0.6875rem;
+    }
+    
+    .back-to-top__icon {
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        /* Ensure button doesn't interfere with mobile navigation */
+        margin-bottom: env(safe-area-inset-bottom, 0);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .back-to-top {
+        background-color: #000000;
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+    
+    .back-to-top:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #000000;
+    }
+    
+    .back-to-top:focus {
+        border-color: #ffffff;
+        box-shadow: 0 0 0 3px #000000, 0 0 0 5px #ffffff;
+    }
+}
+
+/* Reduced motion support - WCAG 2.1 Animation requirements */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        transform: none;
+    }
+    
+    .back-to-top--visible {
+        transform: none;
+    }
+    
+    .back-to-top:hover,
+    .back-to-top:focus,
+    .back-to-top:active {
+        transform: none;
+    }
+    
+    .back-to-top__icon {
+        transition: none;
+    }
+    
+    .back-to-top:hover .back-to-top__icon {
+        transform: none;
+    }
+}
+
+/* Dark mode support (if GeneratePress theme uses dark mode) */
+@media (prefers-color-scheme: dark) {
+    .back-to-top {
+        background-color: #0ea5e9; /* Lighter blue for dark backgrounds */
+        color: #ffffff;
+    }
+    
+    .back-to-top:hover {
+        background-color: #0284c7;
+    }
+    
+    .back-to-top:focus {
+        border-color: #ffffff;
+        box-shadow: 
+            0 0 0 3px #0ea5e9,
+            0 0 0 5px #ffffff,
+            0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Print styles - hide button when printing */
+@media print {
+    .back-to-top {
+        display: none !important;
+    }
+}
+
+/* Ensure button doesn't interfere with cookie notices or other fixed elements */
+.back-to-top {
+    /* Adjust if you have other fixed bottom elements */
+    bottom: calc(2rem + var(--cookie-notice-height, 0px));
+}
+
+/* Animation for users who don't prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+    .back-to-top {
+        /* Smooth appearance animation */
+        animation-duration: 0.4s;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        animation-fill-mode: both;
+    }
+    
+    .back-to-top--visible {
+        animation-name: slideInUp;
+    }
+}
+
+/* Slide in animation keyframes */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Ensure proper stacking context with GeneratePress elements */
+.back-to-top {
+    /* Higher than most GeneratePress elements but below modals */
+    z-index: 99;
+}
+
+/* Integration with GeneratePress theme colors */
+.generate-theme .back-to-top {
+    /* Use CSS custom properties if available in GeneratePress */
+    background-color: var(--accent-color, #006BA1);
+    color: var(--contrast-color, #ffffff);
+}
+
+.generate-theme .back-to-top:hover {
+    background-color: var(--accent-color-hover, #005a8a);
+}
+
+/* WordPress admin bar accommodation */
+.admin-bar .back-to-top {
+    /* Ensure button isn't hidden behind admin bar on mobile */
+    bottom: calc(2rem + 46px);
+}
+
+@media screen and (min-width: 783px) {
+    .admin-bar .back-to-top {
+        bottom: 2rem; /* Normal position on desktop */
+    }
+}

@@ -1,0 +1,585 @@
+/**
+ * Accessible Menubar for WordPress - WCAG AA Compliant Navigation
+ * Meets all requirements from the Justinmind basic menu example
+ */
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES
+   ========================================================================== */
+:root {
+  /* Enhanced Colors - WCAG AA 4.5:1 contrast ratios */
+  --menubar-bg: #ffffff;
+  --menubar-bg-glass: rgba(255, 255, 255, 0.95);
+  --menubar-border: #e2e8f0;
+  --menubar-border-light: rgba(226, 232, 240, 0.6);
+  --menubar-text: #1a202c;
+  --menubar-text-secondary: #4a5568;
+  --menubar-text-hover: #006BA1;
+  --menubar-bg-hover: #f8fafc;
+  --menubar-accent: #006BA1;
+  --menubar-accent-hover: #004a75;
+  --menubar-accent-light: #e6f3f7;
+  --menubar-focus: #006BA1;
+  --menubar-focus-bg: rgba(0, 107, 161, 0.1);
+  
+  /* Enhanced Gradients */
+  --menubar-gradient-primary: linear-gradient(135deg, #006BA1 0%, #004a75 100%);
+  --menubar-gradient-hover: linear-gradient(135deg, #0078b4 0%, #005580 100%);
+  --menubar-gradient-subtle: linear-gradient(180deg, rgba(0, 107, 161, 0.05) 0%, rgba(0, 107, 161, 0.02) 100%);
+  
+  /* Refined Spacing and sizing */
+  --menubar-height: 84px;
+  --menubar-padding: 2rem;
+  --menubar-gap: 2.5rem;
+  --menubar-border-radius: 10px;
+  --menubar-border-radius-small: 6px;
+  
+  /* Enhanced Shadows */
+  --menubar-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --menubar-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --menubar-shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --menubar-shadow-focus: 0 0 0 3px rgba(0, 107, 161, 0.15);
+  
+  /* Refined Animation */
+  --menubar-transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --menubar-transition-fast: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  --menubar-transition-slow: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --menubar-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Typography */
+  --menubar-font-weight-normal: 500;
+  --menubar-font-weight-medium: 600;
+  --menubar-font-weight-semibold: 650;
+  --menubar-letter-spacing: -0.01em;
+  --menubar-letter-spacing-wide: 0.01em;
+  
+  /* Z-index layers */
+  --menubar-z-base: 1000;
+  --menubar-z-dropdown: 1010;
+  --menubar-z-mobile: 1020;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --menubar-bg: #1a202c;
+    --menubar-border: #4a5568;
+    --menubar-text: #f7fafc;
+    --menubar-text-hover: #63b3ed;
+    --menubar-bg-hover: #2d3748;
+    --menubar-focus-bg: rgba(99, 179, 237, 0.1);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --menubar-bg: #ffffff;
+    --menubar-border: #000000;
+    --menubar-text: #000000;
+    --menubar-text-hover: #0000ff;
+    --menubar-bg-hover: #ffff00;
+    --menubar-accent: #0000ff;
+    --menubar-focus: #0000ff;
+  }
+}
+
+/* ==========================================================================
+   SKIP LINK
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 999999;
+  color: #ffffff;
+  background: var(--menubar-accent);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  font-weight: 600;
+  transition: top var(--menubar-transition);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==========================================================================
+   MAIN NAVIGATION CONTAINER
+   ========================================================================== */
+.accessible-menubar {
+  position: sticky;
+  top: 0;
+  z-index: var(--menubar-z-base);
+  background: var(--menubar-bg);
+  border-bottom: 1px solid var(--menubar-border);
+  box-shadow: var(--menubar-shadow);
+}
+
+.accessible-menubar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--menubar-padding);
+  min-height: var(--menubar-height);
+}
+
+/* ==========================================================================
+   LOGO
+   ========================================================================== */
+.accessible-menubar__logo {
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.accessible-menubar__logo a {
+  display: block;
+  text-decoration: none;
+  border-radius: var(--menubar-border-radius);
+  outline: none;
+  transition: var(--menubar-transition);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--menubar-text);
+  padding: 8px;
+  margin: -8px;
+}
+
+.accessible-menubar__logo a:focus-visible {
+  outline: 3px solid var(--menubar-focus);
+  outline-offset: 2px;
+}
+
+.accessible-menubar__logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   DESKTOP MENUBAR
+   ========================================================================== */
+.accessible-menubar__menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--menubar-gap);
+  align-items: center;
+}
+
+@media (min-width: 1025px) {
+  .accessible-menubar__menu {
+    display: flex;
+  }
+}
+
+.accessible-menubar__menu li[role="none"] {
+  position: relative;
+}
+
+/* Menu links and buttons */
+.accessible-menubar__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px 16px;
+  color: var(--menubar-text);
+  background: transparent;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  border-radius: var(--menubar-border-radius);
+  cursor: pointer;
+  transition: var(--menubar-transition);
+  white-space: nowrap;
+  outline: none;
+}
+
+.accessible-menubar__link:hover {
+  color: var(--menubar-text-hover);
+  border-color: var(--menubar-border);
+}
+
+.accessible-menubar__link:focus-visible {
+  color: var(--menubar-focus);
+  background: var(--menubar-focus-bg);
+  border-color: var(--menubar-focus);
+  box-shadow: 0 0 0 2px var(--menubar-focus);
+}
+
+.accessible-menubar__link--active,
+.accessible-menubar__link[aria-current="page"] {
+  color: var(--menubar-accent);
+  background: var(--menubar-focus-bg);
+  border-color: var(--menubar-accent);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SUBMENUS
+   ========================================================================== */
+.accessible-menubar__submenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 250px;
+  background: var(--menubar-bg);
+  border: 1px solid var(--menubar-border);
+  border-radius: var(--menubar-border-radius);
+  box-shadow: var(--menubar-shadow-heavy);
+  z-index: var(--menubar-z-dropdown);
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: var(--menubar-transition);
+}
+
+.accessible-menubar__submenu--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.accessible-menubar__submenu-link {
+  display: block;
+  min-height: 44px;
+  padding: 12px 20px;
+  color: var(--menubar-text);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  transition: var(--menubar-transition);
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.accessible-menubar__submenu-link:hover {
+  color: var(--menubar-text-hover);
+  background: var(--menubar-bg-hover);
+  border-left: 4px solid var(--menubar-accent);
+  padding-left: 16px;
+}
+
+.accessible-menubar__submenu-link:focus-visible {
+  color: var(--menubar-focus);
+  background: var(--menubar-focus-bg);
+  border-color: var(--menubar-focus);
+  box-shadow: inset 0 0 0 2px var(--menubar-focus);
+}
+
+/* ==========================================================================
+   CTA BUTTON
+   ========================================================================== */
+.accessible-menubar__cta {
+  display: none;
+  margin-left: 1rem;
+}
+
+@media (min-width: 1025px) {
+  .accessible-menubar__cta {
+    display: block;
+  }
+}
+
+.accessible-menubar__cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 24px;
+  background: var(--menubar-accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid var(--menubar-accent);
+  border-radius: var(--menubar-border-radius);
+  transition: var(--menubar-transition);
+  outline: none;
+}
+
+.accessible-menubar__cta-button:hover {
+  background: var(--menubar-accent-hover);
+  border-color: var(--menubar-accent-hover);
+  transform: translateY(-1px);
+}
+
+.accessible-menubar__cta-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(0, 107, 161, 0.3);
+}
+
+/* ==========================================================================
+   MOBILE MENU TOGGLE
+   ========================================================================== */
+.accessible-menubar__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 2px solid var(--menubar-border);
+  border-radius: var(--menubar-border-radius);
+  cursor: pointer;
+  transition: var(--menubar-transition);
+  outline: none;
+}
+
+@media (min-width: 1025px) {
+  .accessible-menubar__toggle {
+    display: none;
+  }
+}
+
+.accessible-menubar__toggle:hover {
+  background: var(--menubar-bg-hover);
+  border-color: var(--menubar-accent);
+}
+
+.accessible-menubar__toggle:focus-visible {
+  border-color: var(--menubar-focus);
+  box-shadow: 0 0 0 2px var(--menubar-focus);
+}
+
+.accessible-menubar__hamburger {
+  width: 20px;
+  height: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.accessible-menubar__hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--menubar-text);
+  border-radius: 2px;
+  transition: var(--menubar-transition);
+}
+
+.accessible-menubar__toggle[aria-expanded="true"] .accessible-menubar__hamburger span:first-child {
+  transform: translateY(6px) rotate(45deg);
+  background: var(--menubar-accent);
+}
+
+.accessible-menubar__toggle[aria-expanded="true"] .accessible-menubar__hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.accessible-menubar__toggle[aria-expanded="true"] .accessible-menubar__hamburger span:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+  background: var(--menubar-accent);
+}
+
+/* ==========================================================================
+   MOBILE MENU
+   ========================================================================== */
+.accessible-menubar__mobile-menu {
+  position: fixed;
+  top: var(--menubar-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--menubar-bg);
+  z-index: var(--menubar-z-mobile);
+  overflow-y: auto;
+  border-top: 1px solid var(--menubar-border);
+  display: none;
+}
+
+.accessible-menubar__mobile-content {
+  padding: 2rem var(--menubar-padding);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.accessible-menubar__mobile-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accessible-menubar__mobile-content li[role="none"] {
+  margin-bottom: 0.5rem;
+}
+
+.accessible-menubar__mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding: 16px 20px;
+  color: var(--menubar-text);
+  background: transparent;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-radius: var(--menubar-border-radius);
+  cursor: pointer;
+  transition: var(--menubar-transition);
+  outline: none;
+  text-align: left;
+}
+
+.accessible-menubar__mobile-link:hover,
+.accessible-menubar__mobile-link:focus-visible {
+  color: var(--menubar-text-hover);
+  background: var(--menubar-bg-hover);
+  border-color: var(--menubar-accent);
+}
+
+.accessible-menubar__mobile-link--active {
+  color: var(--menubar-accent);
+  background: var(--menubar-focus-bg);
+  border-color: var(--menubar-accent);
+  font-weight: 600;
+}
+
+.accessible-menubar__mobile-arrow {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--menubar-text);
+  width: 24px;
+  text-align: center;
+}
+
+.accessible-menubar__mobile-submenu {
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding: 8px 0;
+  background: var(--menubar-bg-hover);
+  border-radius: var(--menubar-border-radius);
+  border: 1px solid var(--menubar-border);
+  display: none;
+}
+
+.accessible-menubar__mobile-submenu-link {
+  display: block;
+  min-height: 44px;
+  padding: 12px 32px;
+  color: var(--menubar-text);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  margin: 0 8px;
+  transition: var(--menubar-transition);
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.accessible-menubar__mobile-submenu-link:hover,
+.accessible-menubar__mobile-submenu-link:focus-visible {
+  color: var(--menubar-text-hover);
+  background: var(--menubar-bg);
+  border-color: var(--menubar-accent);
+}
+
+.accessible-menubar__mobile-cta {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--menubar-border);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* Ensure all interactive elements meet minimum size requirements */
+.accessible-menubar a,
+.accessible-menubar button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Focus indicators for keyboard navigation */
+.accessible-menubar *:focus-visible {
+  outline: 3px solid var(--menubar-focus);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .accessible-menubar *,
+  .accessible-menubar *::before,
+  .accessible-menubar *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .accessible-menubar__container {
+    padding: 0 1rem;
+  }
+  
+  .accessible-menubar__logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --menubar-height: 70px;
+    --menubar-padding: 1rem;
+  }
+  
+  .accessible-menubar__mobile-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --menubar-height: 60px;
+  }
+  
+  .accessible-menubar__logo a {
+    font-size: 1.25rem;
+  }
+  
+  .accessible-menubar__mobile-content {
+    padding: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .accessible-menubar {
+    position: static;
+    box-shadow: none;
+    border-bottom: 2px solid #000;
+  }
+  
+  .accessible-menubar__submenu,
+  .accessible-menubar__mobile-menu,
+  .accessible-menubar__toggle {
+    display: none !important;
+  }
+}

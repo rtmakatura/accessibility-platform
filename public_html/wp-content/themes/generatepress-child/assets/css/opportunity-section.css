@@ -1,0 +1,376 @@
+/* The Opportunity Section with Interactive Tooltips */
+
+.opportunity-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f7f9fc 0%, #ffffff 50%, #f7f9fc 100%);
+    position: relative;
+    overflow: visible;
+}
+
+.opportunity-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.opportunity-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.opportunity-subtitle {
+    font-size: 1.25rem;
+    color: #525252;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Statistics Grid - 4 columns on desktop for even layout */
+.opportunity-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Medium screens - 2x2 grid */
+@media (max-width: 1200px) and (min-width: 769px) {
+    .opportunity-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Stat Card with Tooltip Trigger */
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: default;
+    overflow: visible;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-context {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: block;
+}
+
+/* Tooltip Trigger Button */
+.tooltip-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    border: 1px solid #d1d5db;
+    color: #6b7280;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    vertical-align: middle;
+}
+
+.tooltip-trigger:hover,
+.tooltip-trigger:focus {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+    outline: 2px solid rgba(59, 130, 246, 0.2);
+    outline-offset: 2px;
+}
+
+/* Tooltip Container */
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    background: #1f2937;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 280px;
+    max-width: 320px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.tooltip.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+    pointer-events: auto;
+}
+
+/* Tooltip Arrow */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #1f2937;
+}
+
+/* Tooltip positioned below trigger */
+.tooltip.tooltip-below::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: #1f2937;
+}
+
+/* Tooltip Content */
+.tooltip-content {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.tooltip-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tooltip-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+}
+
+.tooltip-list li {
+    padding: 0.25rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.tooltip-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* Close button for mobile */
+.tooltip-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.tooltip-close:hover,
+.tooltip-close:focus {
+    opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .opportunity-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat-card {
+        text-align: center;
+    }
+
+    .tooltip {
+        position: fixed;
+        bottom: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -60%) scale(0.95);
+        width: 90%;
+        max-width: 400px;
+        z-index: 10001;
+    }
+
+    .tooltip.active {
+        transform: translate(-50%, -50%) scale(1);
+        animation: slideIn 0.3s ease;
+    }
+
+    .tooltip::after,
+    .tooltip.tooltip-below::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .opportunity-title {
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .tooltip,
+    .tooltip-trigger {
+        transition: none;
+    }
+
+    .tooltip.active {
+        animation: none;
+        transform: translateX(-50%) scale(1);
+    }
+
+    @media (max-width: 768px) {
+        .tooltip.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}
+
+/* Focus Visible for Keyboard Navigation */
+.tooltip-trigger:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Prevent tooltip flickering */
+.stat-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Ensure smooth hover transitions */
+.tooltip-trigger {
+    position: relative;
+    z-index: 1;
+}
+
+/* Dark Overlay for Mobile */
+.tooltip-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.tooltip-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Additional Enhancements */
+.stat-card-enhanced {
+    position: relative;
+    overflow: visible;
+}
+
+.stat-trend {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: #10b981;
+    font-weight: 600;
+}
+
+.stat-trend.negative {
+    color: #ef4444;
+}
+
+.stat-trend-icon {
+    font-size: 1rem;
+}
+
+/* Loading Animation for Dynamic Content */
+.stat-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    to {
+        left: 100%;
+    }
+}
