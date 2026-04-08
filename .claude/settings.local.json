@@ -58,7 +58,9 @@
       "WebFetch(domain:webaim.org)",
       "Bash(git fetch:*)",
       "Bash(git ls-remote:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(del nul)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
